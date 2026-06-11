@@ -1,0 +1,16 @@
+services:
+    ftp:
+        image: fauria/vsftpd
+        ports:
+            - '${VITE_FTP_TEST_PORT}:21'
+            - '30000-30009:30000-30009'
+        environment:
+            FTP_USER: ${VITE_FTP_TEST_USER}
+            FTP_PASS: ${VITE_FTP_TEST_PASSWORD}
+            FTP_USER_HOME: /home/${VITE_FTP_TEST_USER}
+            PASV_ADDRESS: ${VITE_FTP_TEST_HOST}
+            PASV_MIN_PORT: 30000
+            PASV_MAX_PORT: 30009
+        volumes:
+            - ./ftp-data/home:/home/vsftpd
+            - ./ftp-data/logs:/var/log/vsftpd
