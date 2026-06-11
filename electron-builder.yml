@@ -1,4 +1,4 @@
-appId: com.electron.app
+appId: ru.foxcha.verftp
 productName: ver-ftp
 directories:
     buildResources: build
