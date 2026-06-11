@@ -6,16 +6,16 @@
     "src/app/preload/*.d.ts"
   ],
   "exclude": [
-    "src/app/electron"
+    "src/app/backend",
+    "src/app/preload/index.ts",
+    "src/**/backend",
+    "src/**/preload/index.ts"
   ],
   "compilerOptions": {
     "composite": true,
     "jsx": "react-jsx",
-    "baseUrl": ".",
     "paths": {
-      "@/*": [
-        "src/*"
-      ]
+      "@/*": ["./src/*"]
     }
   }
 }

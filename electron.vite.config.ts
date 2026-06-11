@@ -4,18 +4,28 @@ import react from '@vitejs/plugin-react'
 
 export default defineConfig({
     main: {
-      build: {
-        lib: {
-          entry: 'src/app/electron/index.ts'
-        }
-      }
+        resolve: {
+            alias: {
+                '@': resolve('src'),
+            },
+        },
+        build: {
+            lib: {
+                entry: 'src/app/backend/index.ts',
+            },
+        },
     },
     preload: {
-      build: {
-        lib: {
-          entry: 'src/app/preload/index.ts'
-        }
-      }
+        resolve: {
+            alias: {
+                '@': resolve('src'),
+            },
+        },
+        build: {
+            lib: {
+                entry: 'src/app/preload/index.ts',
+            },
+        },
     },
     renderer: {
         root: resolve('src'),
@@ -25,9 +35,9 @@ export default defineConfig({
             },
         },
         build: {
-          rollupOptions: {
-            input: resolve('src', 'index.html')
-          }
+            rollupOptions: {
+                input: resolve('src', 'index.html'),
+            },
         },
         plugins: [react()],
     },
