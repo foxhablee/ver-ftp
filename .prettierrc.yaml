@@ -1,9 +1,9 @@
-trailingComma: "all"
+trailingComma: 'all'
 tabWidth: 4
 semi: false
 singleQuote: true
 jsxSingleQuote: true
 printWidth: 120
 bracketSameLine: false
-arrowParens: "always"
-endOfLine: "crlf"
+arrowParens: 'always'
+endOfLine: 'crlf'
