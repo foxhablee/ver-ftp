@@ -4,7 +4,7 @@ import { CssBaseline } from '@mui/material'
 function App(): React.JSX.Element {
     return (
         <>
-          <CssBaseline />
+            <CssBaseline />
         </>
     )
 }
