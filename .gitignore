@@ -5,6 +5,10 @@ out
 .eslintcache
 *.log*
 
+# local env
+.env.local
+.env.*.local
+
 # User-specific stuff
 .idea/**/workspace.xml
 .idea/**/tasks.xml
