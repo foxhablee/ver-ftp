@@ -1,6 +1,27 @@
+# misc
+.idea
+.vscode
+
+# build
 out
 dist
+
+# tests
+coverage
+
+# package manager
 pnpm-lock.yaml
-LICENSE.md
+package.json
+
+# configs
+.eslintrc.json
+.lintstagedrc.yaml
+.prettierignore
+.prettierrc.toml
+
+# typescript
 tsconfig.json
 tsconfig.*.json
+
+# license
+LICENSE.md
