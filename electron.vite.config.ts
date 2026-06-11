@@ -4,6 +4,7 @@ import react from '@vitejs/plugin-react'
 
 export default defineConfig({
     main: {
+        envPrefix: 'BACKEND_',
         resolve: {
             alias: {
                 '@': resolve('src'),
@@ -16,6 +17,7 @@ export default defineConfig({
         },
     },
     preload: {
+        envPrefix: 'PRELOAD_',
         resolve: {
             alias: {
                 '@': resolve('src'),
@@ -28,6 +30,7 @@ export default defineConfig({
         },
     },
     renderer: {
+        envPrefix: 'RENDERER_',
         root: resolve('src'),
         resolve: {
             alias: {
