@@ -3,8 +3,6 @@
   "include": [
     "src/env.d.ts",
     "src/**/*",
-    "src/app/preload/*.d.ts",
-    "src/app/App.tsx",
   ],
   "exclude": [
     "src/**/backend",
