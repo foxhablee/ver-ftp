@@ -7,7 +7,6 @@ export const CONNECTION_PROTOCOLS = {
 export type ConnectionProtocol = (typeof CONNECTION_PROTOCOLS)[keyof typeof CONNECTION_PROTOCOLS]
 
 export interface ConnectionItem {
-    id: string
     name: string
     host: string
     port: number

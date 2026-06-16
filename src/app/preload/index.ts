@@ -1,7 +1,11 @@
 import { contextBridge } from 'electron'
+import { ipcConnectFTP } from '@/features/connect-to-ftp/preload'
 
-// Custom APIs for renderer
-const api = {}
+const api = {
+    ftp: {
+        connect: ipcConnectFTP,
+    },
+}
 
 export type IpcApi = typeof api
 
