@@ -1,3 +1,5 @@
-import { createFTPConnect } from './connect'
+import { createFTPConnect, FTPConnection } from './connect'
 
 export { createFTPConnect }
+
+export type { FTPConnection }
