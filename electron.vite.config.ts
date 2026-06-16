@@ -4,7 +4,7 @@ import react from '@vitejs/plugin-react'
 
 export default defineConfig({
     main: {
-        envPrefix: 'BACKEND_',
+        envPrefix: ['BACKEND_', 'VITE_'],
         resolve: {
             alias: {
                 '@': resolve('src'),
@@ -17,7 +17,7 @@ export default defineConfig({
         },
     },
     preload: {
-        envPrefix: 'PRELOAD_',
+        envPrefix: ['PRELOAD_', 'VITE_'],
         resolve: {
             alias: {
                 '@': resolve('src'),
@@ -30,7 +30,7 @@ export default defineConfig({
         },
     },
     renderer: {
-        envPrefix: 'RENDERER_',
+        envPrefix: ['RENDERER_', 'VITE_'],
         root: resolve('src'),
         resolve: {
             alias: {
