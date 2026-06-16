@@ -8,6 +8,8 @@ dist
 
 # tests
 coverage
+*-test
+*-test/**/*
 
 # package manager
 pnpm-lock.yaml

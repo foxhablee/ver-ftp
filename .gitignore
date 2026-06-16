@@ -46,3 +46,5 @@ out
 
 # testing
 ftp-data
+*-test
+*-test/**/*
