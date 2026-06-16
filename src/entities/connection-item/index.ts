@@ -1,1 +1,1 @@
-export { CONNECTION_PROTOCOL, type ConnectionProtocol, type ConnectionItem } from './model/ConnectionItem'
+export { CONNECTION_PROTOCOLS, type ConnectionProtocol, type ConnectionItem } from './model/ConnectionItem'

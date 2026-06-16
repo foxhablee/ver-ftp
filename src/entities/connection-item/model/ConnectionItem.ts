@@ -1,12 +1,10 @@
-export type ConnectionProtocol = 'ftp' | 'sftp' | 'ftps'
-
-export const CONNECTION_PROTOCOL: {
-    [Key in Uppercase<ConnectionProtocol>]: Lowercase<Key>
-} = {
+export const CONNECTION_PROTOCOLS = {
     FTP: 'ftp',
     SFTP: 'sftp',
     FTPS: 'ftps',
-}
+} as const
+
+export type ConnectionProtocol = (typeof CONNECTION_PROTOCOLS)[keyof typeof CONNECTION_PROTOCOLS]
 
 export interface ConnectionItem {
     id: string

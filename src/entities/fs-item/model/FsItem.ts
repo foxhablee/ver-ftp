@@ -1,13 +1,11 @@
-export type FsItemKind = 'file' | 'directory' | 'symbolic' | 'unknown'
-
-export const FS_ITEM_KIND: {
-    [Key in Uppercase<FsItemKind>]: Lowercase<Key>
-} = {
+export const FS_ITEM_KIND = {
     UNKNOWN: 'unknown',
     FILE: 'file',
     DIRECTORY: 'directory',
     SYMBOLIC: 'symbolic',
-}
+} as const
+
+export type FsItemKind = (typeof FS_ITEM_KIND)[keyof typeof FS_ITEM_KIND]
 
 export interface FsItem {
     name: string
