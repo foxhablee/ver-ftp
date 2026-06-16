@@ -3,12 +3,9 @@
   "include": [
     "src/env.d.ts",
     "electron.vite.config.*",
-    "src/app/backend/**/*",
-    "src/app/preload/**/*",
-    "src/**/backend/**/*",
-    "src/**/preload/**/*",
-    "src/**/model/**/*"
+    "src/**/*"
   ],
+  "exclude": ["src/**/ui/**"],
   "compilerOptions": {
     "composite": true,
     "paths": {

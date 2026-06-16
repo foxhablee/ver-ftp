@@ -6,10 +6,8 @@
     "src/app/preload/*.d.ts"
   ],
   "exclude": [
-    "src/app/backend",
-    "src/app/preload/index.ts",
     "src/**/backend",
-    "src/**/preload/index.ts"
+    "src/**/preload",
   ],
   "compilerOptions": {
     "composite": true,
