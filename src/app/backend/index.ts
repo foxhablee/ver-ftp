@@ -1,7 +1,6 @@
 import { app, shell, BrowserWindow } from 'electron'
 import { join } from 'path'
 import { electronApp, optimizer, is } from '@electron-toolkit/utils'
-import { createFTPConnect } from '@/shared/ftp/backend'
 
 function createWindow(): void {
     const mainWindow = new BrowserWindow({
@@ -43,8 +42,6 @@ app.whenReady().then(() => {
     app.on('activate', function () {
         if (BrowserWindow.getAllWindows().length === 0) createWindow()
     })
-
-    createFTPConnect({})
 })
 
 app.on('window-all-closed', () => {
