@@ -1,12 +1,8 @@
 import React from 'react'
-import { CssBaseline } from '@mui/material'
+import { ThemeProvider } from './providers/ThemeProvider'
 
 function App(): React.JSX.Element {
-    return (
-        <>
-            <CssBaseline />
-        </>
-    )
+    return <ThemeProvider></ThemeProvider>
 }
 
 export default App
