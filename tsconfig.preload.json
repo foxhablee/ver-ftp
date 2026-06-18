@@ -1,0 +1,19 @@
+{
+  "extends": "@electron-toolkit/tsconfig/tsconfig.node.json",
+  "include": [
+    "src/env.d.ts",
+    "electron.vite.config.*",
+    "src/**/*",
+  ],
+  "exclude": [
+      "src/**/ui/**",
+      "src/**/backend/**",
+  ],
+  "compilerOptions": {
+    "composite": true,
+    "paths": {
+      "@/*": ["./src/*"]
+    },
+    "types": ["electron-vite/node"]
+  }
+}
