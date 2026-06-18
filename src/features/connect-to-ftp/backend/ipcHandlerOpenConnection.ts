@@ -1,17 +1,17 @@
+import type { IpcMainInvokeEvent } from 'electron'
 import { ConnectionItem } from '@/entities/connection-item'
-import { IpcMainInvokeEvent } from 'electron'
 import { openConnection } from '@/entities/connection-item/backend'
-import { IpcResponseConnectFTP } from '../model/IpcResponseConnectFTP'
+import type { IpcResponseConnectFTP } from '../model/contract'
 
 const connectionsMap = new Map<string, Awaited<ReturnType<typeof openConnection>>>()
 
-export async function ipcConnectFTPHandler(
+export async function ipcHandlerOpenConnection(
     _: IpcMainInvokeEvent,
-    props: ConnectionItem,
+    connection: ConnectionItem,
 ): Promise<IpcResponseConnectFTP> {
     try {
         const id = crypto.randomUUID()
-        openConnection(props).then((connection) => connectionsMap.set(id, connection))
+        openConnection(connection).then((c) => connectionsMap.set(id, c))
         return { ok: true, data: { connectionId: id } }
     } catch (error) {
         console.error(error)

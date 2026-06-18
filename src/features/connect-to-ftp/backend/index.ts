@@ -1,1 +1,1 @@
-export { ipcConnectFTPHandler } from './ipcConnectFTPHandler'
+export { ipcHandlerOpenConnection } from './ipcHandlerOpenConnection'

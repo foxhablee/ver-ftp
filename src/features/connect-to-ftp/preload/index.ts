@@ -1,1 +1,1 @@
-export { ipcConnectFTP } from './ipcConnectFTP'
+export { invokeConnectFtp } from './invokeConnectFtp'
