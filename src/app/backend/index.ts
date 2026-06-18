@@ -1,9 +1,9 @@
 import { app, shell, BrowserWindow } from 'electron'
 import { join } from 'path'
 import { electronApp, optimizer, is } from '@electron-toolkit/utils'
-import { registerIpcHandlers } from '@/app/backend/ipc'
+import { registerIpcHandlers } from '@/app/backend/registerIpcHandlers'
 
-function createWindow(): void {
+function createWindow(): BrowserWindow {
     const mainWindow = new BrowserWindow({
         width: 900,
         height: 670,
@@ -29,6 +29,8 @@ function createWindow(): void {
     } else {
         mainWindow.loadFile(join(__dirname, '../renderer/index.html'))
     }
+
+    return mainWindow
 }
 
 app.whenReady().then(() => {
@@ -38,13 +40,12 @@ app.whenReady().then(() => {
         optimizer.watchWindowShortcuts(window)
     })
 
-    createWindow()
+    const mainWindow = createWindow()
+    registerIpcHandlers({ parentWindow: mainWindow })
 
     app.on('activate', function () {
         if (BrowserWindow.getAllWindows().length === 0) createWindow()
     })
-
-    registerIpcHandlers()
 })
 
 app.on('window-all-closed', () => {
