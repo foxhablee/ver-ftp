@@ -1,7 +1,7 @@
 import type { BrowserWindow, IpcMainInvokeEvent } from 'electron'
 import { createSubwindow } from './createSubwindow'
 import { loadSubwindowContent } from './loadContent'
-import { type IpcCreateSubwindowProps, type IpcResponseCreateSubwindow } from './contract'
+import { type IpcCreateSubwindowProps, type IpcResponseCreateSubwindow } from '../model/contract'
 
 interface Deps {
     parentWindow: BrowserWindow

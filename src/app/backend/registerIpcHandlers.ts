@@ -1,7 +1,8 @@
 import { type BrowserWindow, ipcMain } from 'electron'
 import { ipcHandlerOpenConnection } from '@/features/connect-to-ftp/backend'
 import { CHANNEL_FTP_CONNECT } from '@/features/connect-to-ftp'
-import { CHANNEL_CREATE_SUBWINDOW, ipcHandlerCreateSubwindow } from '@/features/subwindow/backend'
+import { ipcHandlerCreateSubwindow } from '@/features/subwindow/backend'
+import { CHANNEL_CREATE_SUBWINDOW } from '@/features/subwindow'
 
 interface Props {
     parentWindow: BrowserWindow
