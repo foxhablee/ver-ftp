@@ -16,6 +16,6 @@ createRoot(document.getElementById('root')!).render(
         <AppProviders>
             <RouterProvider router={router} />
         </AppProviders>
-        <TanStackRouterDevtools />
+        <TanStackRouterDevtools router={router} />
     </StrictMode>,
 )
