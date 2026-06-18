@@ -1,1 +1,1 @@
-export { default as MainPage } from './ui/MainPage'
+export { shellRoute } from './route'
