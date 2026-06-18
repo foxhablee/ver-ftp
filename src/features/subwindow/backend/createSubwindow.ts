@@ -17,7 +17,7 @@ export function createSubwindow(props: SubwindowProps): BrowserWindow {
         height: props.size?.height || 670,
         modal: props.modal || false,
         parent: props.parent,
-        titleBarStyle: 'hidden',
+        autoHideMenuBar: true,
         ...(process.platform !== 'darwin' ? { titleBarOverlay: true } : {}),
     })
 
