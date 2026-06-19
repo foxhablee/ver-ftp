@@ -1,6 +1,6 @@
 import React from 'react'
 import { Stack } from '@mui/material'
-import { Toolbar } from '@/renderer/widgets/toolbar'
+import Toolbar from './Toolbar'
 
 import { bookmarksTool } from '@/renderer/features/bookmarks-tool'
 import { connectionsTool } from '@/renderer/features/connections-tool'

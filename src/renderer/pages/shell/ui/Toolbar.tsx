@@ -3,7 +3,7 @@ import { Paper, Stack } from '@mui/material'
 
 import ToolButton from './ToolButton'
 import ToolContent from './ToolContent'
-import { Tool } from '../../../shared/model/Tool'
+import { Tool } from '@/shared/model/Tool'
 
 interface Props {
     side: 'left' | 'right'
