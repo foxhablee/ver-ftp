@@ -1,0 +1,18 @@
+import { ConnectionItem, FTPConnection } from '@/shared/model'
+import { AccessOptions, Client } from 'basic-ftp'
+
+export async function createConnection(options: ConnectionItem): Promise<FTPConnection> {
+    const accessOptions: AccessOptions = {
+        host: options.host,
+        port: options.port,
+        user: options.username,
+        password: options.password,
+        secure: options.protocol === 'ftps',
+    }
+
+    const client = new Client()
+    client.ftp.verbose = false
+
+    await client.access(accessOptions)
+    return { client }
+}

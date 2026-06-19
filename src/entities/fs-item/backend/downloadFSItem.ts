@@ -1,5 +1,5 @@
-import { FTPConnection } from '@/shared/ftp/backend'
 import { Writable } from 'node:stream'
+import { FTPConnection } from '@/shared/model'
 
 interface DownloadFSItemProps {
     connection: FTPConnection

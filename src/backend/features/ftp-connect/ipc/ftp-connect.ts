@@ -1,17 +1,7 @@
 import { ConnectionItem } from '@/shared/model'
-import { createFTPConnect, FTPConnection } from '@/shared/ftp/backend'
 import type { IpcMainInvokeEvent } from 'electron'
 import { IPC_METHODS, IpcResponseMap } from '@/shared/ipc'
-
-export async function createConnection(options: ConnectionItem): Promise<FTPConnection> {
-    return createFTPConnect({
-        host: options.host,
-        port: options.port,
-        user: options.username,
-        password: options.password,
-        secure: options.protocol === 'ftps',
-    })
-}
+import { createConnection } from '@/backend/features/ftp-connect/api/create-connection'
 
 const connectionsMap = new Map<string, Awaited<ReturnType<typeof createConnection>>>()
 

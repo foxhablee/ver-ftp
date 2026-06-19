@@ -1,6 +1,6 @@
-import type { FTPConnection } from '@/shared/ftp/backend'
 import { FileType } from 'basic-ftp'
 import { FS_ITEM_KIND, FsItem, FsItemKind } from '../model/FsItem'
+import { FTPConnection } from '@/shared/model'
 
 function convertFileTypeToFSItemKind(fileType: FileType): FsItemKind {
     switch (fileType) {

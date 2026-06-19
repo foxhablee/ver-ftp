@@ -2,7 +2,7 @@ import { type BrowserWindow, ipcMain } from 'electron'
 import { ipcHandlerCreateSubwindow } from '@/features/subwindow/backend'
 import { CHANNEL_CREATE_SUBWINDOW } from '@/features/subwindow'
 import { pageRegistry } from '../routing/pageRegistry'
-import { ipcHandlerFTPConnect } from '@/backend/features/ftp'
+import { ipcHandlerFTPConnect } from '@/backend/features/ftp-connect'
 import { IPC_METHODS } from '@/shared/ipc'
 
 interface Props {
