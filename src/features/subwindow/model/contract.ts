@@ -1,12 +1,13 @@
 import type { IpcResponse } from '@/shared/ipc'
+import { SubwindowProps } from '@/features/subwindow/model/SubwindowProps'
+import { SubwindowContentProps } from '@/features/subwindow/model/SubwindowContentProps'
+import { PageRegistry } from '@/features/subwindow'
 
 export const CHANNEL_CREATE_SUBWINDOW = 'window:create' as const
 
-type WindowContent = { page: string }
-
-export type IpcCreateSubwindowProps = WindowContent & {
-    size?: { width: number; height: number }
-    modal?: boolean
-}
+export type IpcCreateSubwindowProps<TPageRegistry extends PageRegistry = PageRegistry> = Omit<
+    SubwindowProps & SubwindowContentProps<TPageRegistry>,
+    'parent' | 'pageRegistry'
+>
 
 export type IpcResponseCreateSubwindow = IpcResponse<undefined>

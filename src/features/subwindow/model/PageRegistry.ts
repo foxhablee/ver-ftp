@@ -1,0 +1,1 @@
+export type PageRegistry = string[]

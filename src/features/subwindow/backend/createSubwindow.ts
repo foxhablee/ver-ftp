@@ -1,15 +1,5 @@
 import { BrowserWindow, shell } from 'electron'
-
-interface WindowSize {
-    width: number
-    height: number
-}
-
-export interface SubwindowProps {
-    parent: BrowserWindow
-    size?: WindowSize
-    modal?: boolean
-}
+import { SubwindowProps } from '@/features/subwindow/model/SubwindowProps'
 
 export function createSubwindow(props: SubwindowProps): BrowserWindow {
     const newWindow = new BrowserWindow({
