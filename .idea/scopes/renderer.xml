@@ -1,0 +1,3 @@
+<component name="DependencyValidationManager">
+  <scope name="renderer" pattern="file[ver-ftp]:src/renderer//*" />
+</component>

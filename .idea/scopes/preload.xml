@@ -1,0 +1,3 @@
+<component name="DependencyValidationManager">
+  <scope name="preload" pattern="file[ver-ftp]:src/preload//*" />
+</component>
