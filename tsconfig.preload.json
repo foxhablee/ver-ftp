@@ -4,11 +4,9 @@
     "src/env.d.ts",
     "electron.vite.config.*",
     "src/preload/**/*",
+    "src/shared/**/*",
   ],
-  "exclude": [
-      "src/**/ui/**",
-      "src/**/backend/**",
-  ],
+  "exclude": [],
   "compilerOptions": {
     "composite": true,
     "paths": {
