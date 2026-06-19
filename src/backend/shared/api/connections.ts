@@ -1,3 +1,3 @@
-import { createConnection } from '@/backend/features/ftp-connect'
+import { FTPConnection } from '@/shared/model'
 
-export const connectionsMap = new Map<string, Awaited<ReturnType<typeof createConnection>>>()
+export const connectionsMap = new Map<string, FTPConnection>()
