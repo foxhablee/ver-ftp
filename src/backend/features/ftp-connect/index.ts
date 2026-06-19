@@ -1,2 +1,2 @@
-export { ipcHandlerFTPConnect } from '@/backend/features/ftp-connect/ipc/ftp-connect'
-export { createConnection } from '@/backend/features/ftp-connect/api/create-connection'
+export { ipcHandlerFTPConnect } from './ipc/ftp-connect'
+export { createConnection } from './api/create-connection'
