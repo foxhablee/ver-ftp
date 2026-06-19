@@ -1,8 +1,7 @@
 import { type BrowserWindow, ipcMain } from 'electron'
-import { ipcHandlerCreateSubwindow } from '@/features/subwindow/backend'
-import { CHANNEL_CREATE_SUBWINDOW } from '@/features/subwindow'
-import { pageRegistry } from '../routing/pageRegistry'
+import { pageRegistry } from '@/app/routing/pageRegistry'
 import { ipcHandlerFTPConnect } from '@/backend/features/ftp-connect'
+import { ipcHandlerSubwindowCreate } from '@/backend/features/subwindow'
 import { IPC_METHODS } from '@/shared/ipc'
 
 interface Props {
@@ -11,5 +10,5 @@ interface Props {
 
 export function registerIpcHandlers({ parentWindow: parent }: Props): void {
     ipcMain.handle(IPC_METHODS.FTP_CONNECT, ipcHandlerFTPConnect)
-    ipcMain.handle(CHANNEL_CREATE_SUBWINDOW, ipcHandlerCreateSubwindow({ parent, pageRegistry }))
+    ipcMain.handle(IPC_METHODS.SUBWINDOW_CREATE, ipcHandlerSubwindowCreate({ parent, pageRegistry }))
 }

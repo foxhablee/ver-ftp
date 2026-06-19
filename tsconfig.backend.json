@@ -3,7 +3,7 @@
   "include": [
     "src/env.d.ts",
     "electron.vite.config.*",
-    "src/**/*",
+    "src/backend/**/*",
   ],
   "exclude": ["src/**/ui/**"],
   "compilerOptions": {

@@ -12,7 +12,7 @@ export default defineConfig({
         },
         build: {
             lib: {
-                entry: 'src/app/backend/index.ts',
+                entry: 'src/backend/app/index.ts',
             },
         },
     },
