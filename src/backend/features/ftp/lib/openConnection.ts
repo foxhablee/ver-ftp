@@ -1,7 +1,7 @@
 import { ConnectionItem } from '@/shared/model'
 import { createFTPConnect, FTPConnection } from '@/shared/ftp/backend'
 import type { IpcMainInvokeEvent } from 'electron'
-import type { IpcResponse } from '@/shared/ipc'
+import { IPC_METHODS, IpcResponseMap } from '@/shared/ipc'
 
 export async function createConnection(options: ConnectionItem): Promise<FTPConnection> {
     return createFTPConnect({
@@ -13,22 +13,18 @@ export async function createConnection(options: ConnectionItem): Promise<FTPConn
     })
 }
 
-export type IpcResponseConnectFTP = IpcResponse<{
-    connectionId: string
-}>
-
 const connectionsMap = new Map<string, Awaited<ReturnType<typeof createConnection>>>()
 
 export async function ipcHandlerFTPConnect(
     _: IpcMainInvokeEvent,
     connection: ConnectionItem,
-): Promise<IpcResponseConnectFTP> {
+): Promise<IpcResponseMap[typeof IPC_METHODS.FTP_CONNECT]> {
     try {
         const id = crypto.randomUUID()
         createConnection(connection).then((c) => connectionsMap.set(id, c))
         return { ok: true, data: { connectionId: id } }
     } catch (error) {
         console.error(error)
-        return { ok: false, error: 'Error while create connection' }
+        return { ok: false, code: 'error', errorText: 'Error while create connection' }
     }
 }

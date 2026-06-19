@@ -3,3 +3,5 @@ export const IPC_METHODS = {
 } as const
 
 export type IpcMethod = (typeof IPC_METHODS)[keyof typeof IPC_METHODS]
+
+export type IpcMethodsMap = typeof IPC_METHODS
