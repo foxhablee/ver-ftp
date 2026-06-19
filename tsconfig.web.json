@@ -2,12 +2,10 @@
   "extends": "@electron-toolkit/tsconfig/tsconfig.web.json",
   "include": [
     "src/env.d.ts",
-    "src/**/*",
+    "src/renderer/**/*",
+    "src/shared/**/*",
   ],
-  "exclude": [
-    "src/**/backend",
-    "src/**/preload",
-  ],
+  "exclude": [],
   "compilerOptions": {
     "composite": true,
     "jsx": "react-jsx",
