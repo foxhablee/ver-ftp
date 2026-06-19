@@ -1,2 +1,2 @@
-export { createConnection } from './lib/openConnection'
-export { ipcHandlerFTPConnect } from './lib/openConnection'
+export { createConnection } from './lib/create-connection'
+export { ipcHandlerFTPConnect } from './lib/create-connection'
