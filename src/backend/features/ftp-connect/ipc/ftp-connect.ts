@@ -1,9 +1,8 @@
 import { ConnectionItem } from '@/shared/model'
 import type { IpcMainInvokeEvent } from 'electron'
 import { IPC_METHODS, IpcResponseMap } from '@/shared/ipc'
-import { createConnection } from '@/backend/features/ftp-connect/api/create-connection'
-
-const connectionsMap = new Map<string, Awaited<ReturnType<typeof createConnection>>>()
+import { connectionsMap } from '@/backend/shared/api'
+import { createConnection } from '@/backend/features/ftp-connect'
 
 export async function ipcHandlerFTPConnect(
     _: IpcMainInvokeEvent,
