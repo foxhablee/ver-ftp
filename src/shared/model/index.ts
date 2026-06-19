@@ -1,5 +1,6 @@
-export { type Tool } from './Tool'
+export { type Tool, type ToolId, TOOLS_IDS } from './Tool'
 export type { ConnectionItem, ConnectionProtocol, RegisteredConnection } from './ConnectionItem'
 export { CONNECTION_PROTOCOLS } from './ConnectionItem'
 export type { FTPConnection } from './FTPConnection'
 export { pageRegistry, type PageRegistry } from './PageRegistry'
+export { pageRegistry, type PageRegistry, PAGES_IDS } from './PageRegistry'

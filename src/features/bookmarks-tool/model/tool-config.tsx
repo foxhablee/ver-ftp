@@ -1,9 +1,9 @@
 import { Fragment } from 'react'
-import { Tool } from '@/shared/model'
+import { Tool, TOOLS_IDS } from '@/shared/model'
 import StarIcon from '@mui/icons-material/Star'
 
 export const bookmarksTool: Tool = {
-    id: 'bookmarks',
+    id: TOOLS_IDS.BOOKMARKS,
     title: 'Закладки',
     side: 'left',
     Panel: Fragment,

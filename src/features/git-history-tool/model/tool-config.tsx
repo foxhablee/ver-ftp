@@ -1,9 +1,9 @@
 import { Fragment } from 'react'
-import { Tool } from '@/shared/model'
+import { Tool, TOOLS_IDS } from '@/shared/model'
 import TimelineIcon from '@mui/icons-material/Timeline'
 
 export const gitHistoryTool: Tool = {
-    id: 'git-history',
+    id: TOOLS_IDS.GIT_HISTORY,
     title: 'История изменений',
     side: 'right',
     Panel: Fragment,
