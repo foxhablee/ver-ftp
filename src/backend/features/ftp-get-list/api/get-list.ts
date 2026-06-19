@@ -1,8 +1,7 @@
 import { FileType } from 'basic-ftp'
-import { FS_ITEM_KIND, FsItem, FsItemKind } from '../model/FsItem'
-import { FTPConnection } from '@/shared/model'
+import { FS_ITEM_KIND, type FsItem, type FsItemKind, type FTPConnection } from '@/shared/model'
 
-function convertFileTypeToFSItemKind(fileType: FileType): FsItemKind {
+function convertFileTypeToFsItemKind(fileType: FileType): FsItemKind {
     switch (fileType) {
         case FileType.File:
             return FS_ITEM_KIND.FILE
@@ -16,17 +15,17 @@ function convertFileTypeToFSItemKind(fileType: FileType): FsItemKind {
     }
 }
 
-interface GetFileEntitiesListProps {
+interface GetFsItemsListProps {
     connection: FTPConnection
     folder?: string
 }
 
-export async function getFSItemsList(props: GetFileEntitiesListProps): Promise<FsItem[]> {
+export async function getFsItemsList(props: GetFsItemsListProps): Promise<FsItem[]> {
     const list = await props.connection.client.list(props.folder)
     return list.map((i) => ({
         name: i.name,
         path: i.link || '',
-        kind: convertFileTypeToFSItemKind(i.type),
+        kind: convertFileTypeToFsItemKind(i.type),
         size: i.size,
         modifiedAt: i.modifiedAt,
     }))
