@@ -21,7 +21,10 @@ export async function ipcHandlerFTPConnect(
 ): Promise<IpcResponseMap[typeof IPC_METHODS.FTP_CONNECT]> {
     try {
         const id = crypto.randomUUID()
-        createConnection(connection).then((c) => connectionsMap.set(id, c))
+
+        const newConnection = await createConnection(connection)
+        connectionsMap.set(id, newConnection)
+
         return { ok: true, data: { connectionId: id } }
     } catch (error) {
         console.error(error)
