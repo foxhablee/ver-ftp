@@ -31,7 +31,7 @@ export default defineConfig({
     },
     renderer: {
         envPrefix: ['RENDERER_', 'VITE_'],
-        root: resolve('src'),
+        root: resolve('src/renderer'),
         resolve: {
             alias: {
                 '@': resolve('src'),
@@ -39,7 +39,7 @@ export default defineConfig({
         },
         build: {
             rollupOptions: {
-                input: resolve('src', 'index.html'),
+                input: resolve('src/renderer', 'index.html'),
             },
         },
         plugins: [react()],
