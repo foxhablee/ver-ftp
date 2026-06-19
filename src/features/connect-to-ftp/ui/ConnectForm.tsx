@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Button, MenuItem, Select, Stack, TextField } from '@mui/material'
-import { CONNECTION_PROTOCOLS, ConnectionProtocol } from '@/entities/connection-item'
+import { CONNECTION_PROTOCOLS, ConnectionProtocol } from '@/shared/model'
 
 function ConnectForm(): React.JSX.Element {
     const [protocol, setProtocol] = useState<ConnectionProtocol>(CONNECTION_PROTOCOLS.FTP)

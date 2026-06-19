@@ -1,7 +1,7 @@
 import type { IpcMainInvokeEvent } from 'electron'
-import { ConnectionItem } from '@/entities/connection-item'
 import { openConnection } from '@/entities/connection-item/backend'
 import type { IpcResponseConnectFTP } from '../model/contract'
+import { ConnectionItem } from '@/shared/model'
 
 const connectionsMap = new Map<string, Awaited<ReturnType<typeof openConnection>>>()
 

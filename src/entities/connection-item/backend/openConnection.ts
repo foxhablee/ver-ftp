@@ -1,5 +1,5 @@
 import { FTPConnection, createFTPConnect } from '@/shared/ftp/backend'
-import { ConnectionItem } from '../model/ConnectionItem'
+import { ConnectionItem } from '@/shared/model'
 
 export async function openConnection(options: ConnectionItem): Promise<FTPConnection> {
     return createFTPConnect({
