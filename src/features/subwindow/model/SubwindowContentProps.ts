@@ -1,4 +1,4 @@
-import { PageRegistry } from '@/features/subwindow'
+import { PageRegistry } from '@/shared/model'
 
 export interface SubwindowContentProps<TPageRegistry extends PageRegistry = PageRegistry> {
     pageRegistry: TPageRegistry

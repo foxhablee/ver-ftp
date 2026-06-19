@@ -1,7 +1,7 @@
 import type { IpcResponse } from '@/shared/ipc'
 import { SubwindowProps } from '@/features/subwindow/model/SubwindowProps'
 import { SubwindowContentProps } from '@/features/subwindow/model/SubwindowContentProps'
-import { PageRegistry } from '@/features/subwindow'
+import { PageRegistry } from '@/shared/model'
 
 export const CHANNEL_CREATE_SUBWINDOW = 'window:create' as const
 
