@@ -1,4 +1,4 @@
-import { invokeFTPConnect } from '@/preload/api/ftp-connect'
+import { invokeFTPConnect } from './api/ftp-connect'
 import { invokeCreateSubwindow } from '@/features/subwindow/preload'
 import { pageRegistry } from '@/app/routing/pageRegistry'
 

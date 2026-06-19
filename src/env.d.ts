@@ -1,6 +1,6 @@
 /// <reference types="vite/client" />
 
-import { IpcApi } from '@/app/preload'
+import type { IpcApi } from '@/preload'
 
 declare global {
     interface ImportMetaEnv {

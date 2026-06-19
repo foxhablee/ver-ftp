@@ -25,7 +25,7 @@ export default defineConfig({
         },
         build: {
             lib: {
-                entry: 'src/app/preload/index.ts',
+                entry: 'src/preload/index.ts',
             },
         },
     },
