@@ -15,3 +15,7 @@ export interface ConnectionItem {
     password?: string
     savePassword: boolean
 }
+
+export interface RegisteredConnection extends ConnectionItem {
+    id: string
+}

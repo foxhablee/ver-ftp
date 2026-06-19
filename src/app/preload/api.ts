@@ -1,10 +1,10 @@
-import { invokeConnectFtp } from '@/features/connect-to-ftp/preload'
+import { invokeFTPConnect } from '@/preload/api/ftp-connect'
 import { invokeCreateSubwindow } from '@/features/subwindow/preload'
 import { pageRegistry } from '@/app/routing/pageRegistry'
 
 export const api = {
     ftp: {
-        connect: invokeConnectFtp,
+        connect: invokeFTPConnect,
     },
     window: {
         create: invokeCreateSubwindow<typeof pageRegistry>,

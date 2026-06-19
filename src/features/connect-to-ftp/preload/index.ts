@@ -1,1 +1,0 @@
-export { invokeConnectFtp } from './invokeConnectFtp'

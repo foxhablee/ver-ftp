@@ -1,1 +1,0 @@
-export { ipcHandlerOpenConnection } from './ipcHandlerOpenConnection'
