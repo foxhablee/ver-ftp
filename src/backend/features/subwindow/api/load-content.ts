@@ -1,10 +1,10 @@
 import { join } from 'path'
 import type { BrowserWindow } from 'electron'
 import { is } from '@electron-toolkit/utils'
-import { SubwindowContentProps } from '@/features/subwindow/model/SubwindowContentProps'
+import { pageRegistry, type SubwindowContent } from '@/shared/model'
 
-export function loadSubwindowContent(window: BrowserWindow, props: SubwindowContentProps): void {
-    if (!props.pageRegistry.includes(props.page)) {
+export function loadSubwindowContent(window: BrowserWindow, props: SubwindowContent): void {
+    if (!pageRegistry.includes(props.page)) {
         throw new Error(`Trying load page '${props.page}' not from allowed list`)
     }
 

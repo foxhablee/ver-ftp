@@ -1,7 +1,7 @@
 import { BrowserWindow, shell } from 'electron'
-import { SubwindowProps } from '@/features/subwindow/model/SubwindowProps'
+import type { Subwindow } from '@/shared/model'
 
-export function createSubwindow(props: SubwindowProps): BrowserWindow {
+export function createSubwindow(props: Subwindow): BrowserWindow {
     const newWindow = new BrowserWindow({
         width: props.size?.width || 900,
         height: props.size?.height || 670,
