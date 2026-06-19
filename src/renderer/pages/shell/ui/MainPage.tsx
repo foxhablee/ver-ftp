@@ -1,10 +1,10 @@
 import React from 'react'
 import { Stack } from '@mui/material'
-import { Toolbar } from '@/widgets/toolbar'
+import { Toolbar } from '@/renderer/widgets/toolbar'
 
-import { bookmarksTool } from '@/features/bookmarks-tool'
-import { connectionsTool } from '@/features/connections-tool'
-import { gitHistoryTool } from '@/features/git-history-tool'
+import { bookmarksTool } from '@/renderer/features/bookmarks-tool'
+import { connectionsTool } from '@/renderer/features/connections-tool'
+import { gitHistoryTool } from '@/renderer/features/git-history-tool'
 
 function MainPage(): React.JSX.Element {
     return (

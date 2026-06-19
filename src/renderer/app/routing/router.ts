@@ -1,7 +1,7 @@
 import { createRouter } from '@tanstack/react-router'
 import { rootRoute } from '@/shared/lib'
-import { shellRoute } from '@/pages/shell'
-import { toolRouter } from '@/pages/tool'
+import { shellRoute } from '@/renderer/pages/shell'
+import { toolRouter } from '@/renderer/pages/tool'
 
 const routeTree = rootRoute.addChildren([shellRoute, toolRouter])
 
