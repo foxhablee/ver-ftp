@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="SharedFileColors">
+    <fileColor scope="shared" color="121c10" />
     <fileColor scope="renderer" color="1c1a11" />
     <fileColor scope="preload" color="18121c" />
     <fileColor scope="backend" color="12131c" />
