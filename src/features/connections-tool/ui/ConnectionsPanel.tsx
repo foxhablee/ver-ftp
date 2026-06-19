@@ -3,7 +3,7 @@ import { Button } from '@mui/material'
 
 function ConnectionsPanel(): React.JSX.Element {
     function clickHandler(): void {
-        window.api.window.create({ page: '/tool/connections' })
+        window.api.window.create({ page: 'tool/connections' })
     }
 
     return (
