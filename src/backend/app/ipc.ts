@@ -1,6 +1,7 @@
 import { type BrowserWindow, ipcMain } from 'electron'
 import { ipcHandlerFTPConnect } from '@/backend/features/ftp-connect'
 import { ipcHandlerSubwindowCreate } from '@/backend/features/subwindow'
+import { ipcHandlerFtpGetList } from '@/backend/features/ftp-get-list/ipc/ftp-get-list'
 import { IPC_METHODS } from '@/shared/ipc'
 
 interface Props {
@@ -9,5 +10,6 @@ interface Props {
 
 export function registerIpcHandlers({ parentWindow: parent }: Props): void {
     ipcMain.handle(IPC_METHODS.FTP_CONNECT, ipcHandlerFTPConnect)
+    ipcMain.handle(IPC_METHODS.FTP_GET_LIST, ipcHandlerFtpGetList)
     ipcMain.handle(IPC_METHODS.SUBWINDOW_CREATE, ipcHandlerSubwindowCreate({ parent }))
 }

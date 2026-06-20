@@ -1,4 +1,5 @@
 import { IpcMethod } from '@/shared/ipc/IpcMethod'
+import { FsItem } from '@/shared/model'
 
 export interface OkIpcResponse<T> {
     ok: true
@@ -19,5 +20,6 @@ type AssertResponseMap<T extends Record<IpcMethod, IpcResponse<unknown, string>>
 
 export type IpcResponseMap = AssertResponseMap<{
     'ftp:connect': IpcResponse<{ connectionId: string }, 'error'>
+    'ftp:get-list': IpcResponse<FsItem[], 'error'>
     'subwindow:create': IpcResponse<undefined, 'error' | 'not_exists'>
 }>
