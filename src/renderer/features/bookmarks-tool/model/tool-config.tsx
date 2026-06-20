@@ -1,5 +1,6 @@
 import { Fragment } from 'react'
-import { Tool, TOOLS_IDS } from '@/shared/model'
+import { TOOLS_IDS } from '@/shared/model'
+import { Tool } from '@/renderer/shared/model'
 import StarIcon from '@mui/icons-material/Star'
 
 export const bookmarksTool: Tool = {

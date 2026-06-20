@@ -1,5 +1,5 @@
 import { createRouter } from '@tanstack/react-router'
-import { rootRoute } from '@/shared/lib'
+import { rootRoute } from '@/renderer/shared/lib'
 import { shellRoute } from '@/renderer/pages/shell'
 import { toolRouter } from '@/renderer/pages/tool'
 

@@ -1,4 +1,4 @@
-import { TOOLS_IDS } from '@/shared/model/Tool'
+import { TOOLS_IDS } from '@/shared/model/ToolId'
 
 export const PAGES_IDS = {
     TOOL: 'tool',

@@ -1,4 +1,5 @@
-import { Tool, TOOLS_IDS } from '@/shared/model'
+import { TOOLS_IDS } from '@/shared/model'
+import { Tool } from '@/renderer/shared/model'
 import CableIcon from '@mui/icons-material/Cable'
 import ConnectionsPanel from '../ui/ConnectionsPanel'
 

@@ -1,5 +1,5 @@
 import { createRoute } from '@tanstack/react-router'
-import { rootRoute } from '@/shared/lib'
+import { rootRoute } from '@/renderer/shared/lib'
 import ToolPage from './ui/ToolPage'
 import { PAGES_IDS } from '@/shared/model'
 

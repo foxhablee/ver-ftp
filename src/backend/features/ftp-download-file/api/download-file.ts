@@ -1,4 +1,4 @@
-import type { FTPConnection } from '@/shared/model'
+import { FTPConnection } from '@/backend/shared/model'
 
 interface DownloadFsItemProps {
     connection: FTPConnection
