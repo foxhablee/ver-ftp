@@ -1,7 +1,7 @@
-import { app, shell, BrowserWindow } from 'electron'
-import { join } from 'path'
-import { electronApp, optimizer, is } from '@electron-toolkit/utils'
+import { app, BrowserWindow, shell } from 'electron'
+import { electronApp, is, optimizer } from '@electron-toolkit/utils'
 import { registerIpcHandlers } from './ipc'
+import { PATHS } from '@/backend/shared/lib/path'
 
 function createWindow(): BrowserWindow {
     const mainWindow = new BrowserWindow({
@@ -10,7 +10,7 @@ function createWindow(): BrowserWindow {
         show: false,
         autoHideMenuBar: true,
         webPreferences: {
-            preload: join(__dirname, '../preload/index.js'),
+            preload: PATHS.PRELOAD,
             sandbox: true,
         },
     })
@@ -27,7 +27,7 @@ function createWindow(): BrowserWindow {
     if (is.dev && process.env['ELECTRON_RENDERER_URL']) {
         mainWindow.loadURL(process.env['ELECTRON_RENDERER_URL'])
     } else {
-        mainWindow.loadFile(join(__dirname, '../renderer/index.html'))
+        mainWindow.loadFile(PATHS.INDEX_HTML)
     }
 
     return mainWindow
