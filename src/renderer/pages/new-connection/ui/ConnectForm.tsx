@@ -8,11 +8,13 @@ function ConnectForm(): React.JSX.Element {
     const [port, setPort] = useState(21)
     const [username, setUsername] = useState<string>(import.meta.env.VITE_FTP_TEST_USER)
     const [password, setPassword] = useState<string>(import.meta.env.VITE_FTP_TEST_PASSWORD)
+    const [loading, setLoading] = useState<boolean>(false)
 
     async function submitHandler(e: React.SubmitEvent<HTMLFormElement>): Promise<void> {
         e.preventDefault()
 
-        await window.api.ftp.connect({
+        setLoading(true)
+        const connectionResponse = await window.api.ftp.connect({
             host,
             name: `${protocol}-${host}`,
             port,
@@ -21,24 +23,15 @@ function ConnectForm(): React.JSX.Element {
             username,
             password,
         })
+
+        if (connectionResponse.ok) {
+            setLoading(false)
+        }
     }
 
     return (
         <form onSubmit={submitHandler}>
             <Stack spacing={2}>
-                <Select
-                    id='protocol'
-                    label='protocol'
-                    variant='outlined'
-                    value={protocol}
-                    onChange={(e) => setProtocol(e.target.value)}
-                    required
-                    size='small'
-                >
-                    <MenuItem value={CONNECTION_PROTOCOLS.FTP}>{CONNECTION_PROTOCOLS.FTP}</MenuItem>
-                    <MenuItem value={CONNECTION_PROTOCOLS.FTPS}>{CONNECTION_PROTOCOLS.FTPS}</MenuItem>
-                    <MenuItem value={CONNECTION_PROTOCOLS.SFTP}>{CONNECTION_PROTOCOLS.SFTP}</MenuItem>
-                </Select>
                 <Stack direction='row' spacing={2}>
                     <TextField
                         value={host}
@@ -48,6 +41,7 @@ function ConnectForm(): React.JSX.Element {
                         variant='outlined'
                         required
                         size='small'
+                        disabled={loading}
                         fullWidth
                     />
                     <TextField
@@ -59,8 +53,24 @@ function ConnectForm(): React.JSX.Element {
                         onChange={(e) => setPort(Number(e.target.value))}
                         size='small'
                         type='number'
+                        disabled={loading}
                         fullWidth
                     />
+                    <Select
+                        sx={{ width: 200 }}
+                        id='protocol'
+                        label='protocol'
+                        variant='outlined'
+                        value={protocol}
+                        onChange={(e) => setProtocol(e.target.value)}
+                        required
+                        disabled={loading}
+                        size='small'
+                    >
+                        <MenuItem value={CONNECTION_PROTOCOLS.FTP}>{CONNECTION_PROTOCOLS.FTP}</MenuItem>
+                        <MenuItem value={CONNECTION_PROTOCOLS.FTPS}>{CONNECTION_PROTOCOLS.FTPS}</MenuItem>
+                        <MenuItem value={CONNECTION_PROTOCOLS.SFTP}>{CONNECTION_PROTOCOLS.SFTP}</MenuItem>
+                    </Select>
                 </Stack>
                 <TextField
                     id='user'
@@ -70,6 +80,7 @@ function ConnectForm(): React.JSX.Element {
                     size='small'
                     value={username}
                     onChange={(e) => setUsername(e.target.value)}
+                    disabled={loading}
                 />
                 <TextField
                     id='password'
@@ -79,9 +90,10 @@ function ConnectForm(): React.JSX.Element {
                     size='small'
                     type='password'
                     value={password}
+                    disabled={loading}
                     onChange={(e) => setPassword(e.target.value)}
                 />
-                <Button type='submit' variant='outlined'>
+                <Button type='submit' variant='outlined' loading={loading}>
                     Подключиться
                 </Button>
             </Stack>

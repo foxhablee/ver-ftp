@@ -3,13 +3,13 @@ import { Button } from '@mui/material'
 
 function ConnectionsPanel(): React.JSX.Element {
     function clickHandler(): void {
-        window.api.window.create({ page: 'tool/connections' })
+        window.api.window.create({ page: 'new-connection' })
     }
 
     return (
         <>
             <Button variant='outlined' type='button' onClick={clickHandler}>
-                Подключиться
+                Создать подключение
             </Button>
         </>
     )
