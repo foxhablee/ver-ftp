@@ -1,5 +1,6 @@
 import { BrowserWindow, shell } from 'electron'
 import type { Subwindow } from '@/shared/model'
+import { PATHS } from '@/backend/shared/lib/path'
 
 export function createSubwindow(props: Subwindow): BrowserWindow {
     const newWindow = new BrowserWindow({
@@ -8,6 +9,10 @@ export function createSubwindow(props: Subwindow): BrowserWindow {
         modal: props.modal || false,
         parent: props.parent,
         autoHideMenuBar: true,
+        webPreferences: {
+            preload: PATHS.PRELOAD,
+            sandbox: true,
+        },
         ...(process.platform !== 'darwin' ? { titleBarOverlay: true } : {}),
     })
 
