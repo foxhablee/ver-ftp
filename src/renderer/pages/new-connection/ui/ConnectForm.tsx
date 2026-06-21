@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import { Button, MenuItem, Select, Stack, TextField } from '@mui/material'
-import { CONNECTION_PROTOCOLS, ConnectionProtocol } from '@/shared/model'
+import { CONNECTION_PROTOCOLS, ConnectionItem, ConnectionProtocol } from '@/shared/model'
+import { useDispatch } from 'react-redux'
+import { connect } from '@/renderer/entities/connection'
 
 function ConnectForm(): React.JSX.Element {
     const [protocol, setProtocol] = useState<ConnectionProtocol>(CONNECTION_PROTOCOLS.FTP)
@@ -9,12 +11,12 @@ function ConnectForm(): React.JSX.Element {
     const [username, setUsername] = useState<string>(import.meta.env.VITE_FTP_TEST_USER)
     const [password, setPassword] = useState<string>(import.meta.env.VITE_FTP_TEST_PASSWORD)
     const [loading, setLoading] = useState<boolean>(false)
+    const dispatch = useDispatch()
 
     async function submitHandler(e: React.SubmitEvent<HTMLFormElement>): Promise<void> {
         e.preventDefault()
 
-        setLoading(true)
-        const connectionResponse = await window.api.ftp.connect({
+        const newConnection: ConnectionItem = {
             host,
             name: `${protocol}-${host}`,
             port,
@@ -22,10 +24,14 @@ function ConnectForm(): React.JSX.Element {
             savePassword: true,
             username,
             password,
-        })
+        }
 
+        setLoading(true)
+        const connectionResponse = await window.api.ftp.connect(newConnection)
+
+        setLoading(false)
         if (connectionResponse.ok) {
-            setLoading(false)
+            dispatch(connect({ ...newConnection, id: connectionResponse.data.connectionId }))
         }
     }
 

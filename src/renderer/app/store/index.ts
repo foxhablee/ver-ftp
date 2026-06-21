@@ -1,7 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit'
+import { connectionReducer } from '@/renderer/entities/connection'
 
 export const store = configureStore({
-    reducer: {},
+    reducer: {
+        connection: connectionReducer,
+    },
 })
 
 declare global {
