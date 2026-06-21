@@ -1,6 +1,6 @@
 export type { ConnectionItem, ConnectionProtocol, RegisteredConnection } from './ConnectionItem'
 export { CONNECTION_PROTOCOLS } from './ConnectionItem'
 export { FS_ITEM_KIND, type FsItem, type FsItemKind } from './FsItem'
-export { pageRegistry, type PageRegistry, PAGES_IDS } from './PageRegistry'
+export { pageRegistry, type PageRegistry, PAGES_IDS, type PageLink } from './PageRegistry'
 export type { Subwindow, SubwindowContent, IpcCreateSubwindowProps } from './Subwindow'
 export { type ToolId, TOOLS_IDS } from './ToolId'

@@ -1,5 +1,5 @@
 import type { BrowserWindow } from 'electron'
-import type { PageRegistry } from './PageRegistry'
+import { PageLink } from './PageRegistry'
 
 interface WindowSize {
     width: number
@@ -13,7 +13,7 @@ export interface Subwindow {
 }
 
 export interface SubwindowContent {
-    page: PageRegistry[number]
+    page: PageLink
 }
 
 export type IpcCreateSubwindowProps = Omit<Subwindow & SubwindowContent, 'parent'>

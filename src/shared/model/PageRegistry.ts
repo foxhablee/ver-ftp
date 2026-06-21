@@ -13,3 +13,5 @@ export const pageRegistry = [
 ] as const
 
 export type PageRegistry = typeof pageRegistry
+
+export type PageLink = PageRegistry[number]
