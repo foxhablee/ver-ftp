@@ -23,4 +23,5 @@ export type IpcResponseMap = AssertResponseMap<{
     'ftp:get-list': IpcResponse<FsItem[], 'error'>
     'window:create': IpcResponse<undefined, 'error' | 'not_exists'>
     'window:get-id': IpcResponse<number, 'error'>
+    'window:close': IpcResponse<undefined, 'error' | 'not_found'>
 }>

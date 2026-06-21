@@ -3,6 +3,7 @@ import { ipcHandlerFTPConnect } from '@/backend/features/ftp-connect'
 import { ipcHandlerSubwindowCreate } from '@/backend/features/subwindow'
 import { ipcHandlerFtpGetList } from '@/backend/features/ftp-get-list/ipc/ftp-get-list'
 import { ipcHandlerWindowGetId } from '@/backend/features/get-window-id'
+import { ipcHandlerWindowClose } from '@/backend/features/close-window'
 import { IPC_METHODS } from '@/shared/ipc'
 
 interface Props {
@@ -14,4 +15,5 @@ export function registerIpcHandlers({ parentWindow: parent }: Props): void {
     ipcMain.handle(IPC_METHODS.FTP_GET_LIST, ipcHandlerFtpGetList)
     ipcMain.handle(IPC_METHODS.WINDOW_CREATE, ipcHandlerSubwindowCreate({ parent }))
     ipcMain.handle(IPC_METHODS.WINDOW_GET_ID, ipcHandlerWindowGetId)
+    ipcMain.handle(IPC_METHODS.WINDOW_CLOSE, ipcHandlerWindowClose({ parent }))
 }

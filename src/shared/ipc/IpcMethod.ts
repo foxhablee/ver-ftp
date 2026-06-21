@@ -6,6 +6,7 @@ export const IPC_METHODS = {
     FTP_GET_LIST: `${IPC_NAMESPACE_FTP}:get-list`,
     WINDOW_CREATE: `${IPC_NAMESPACE_WINDOW}:create`,
     WINDOW_GET_ID: `${IPC_NAMESPACE_WINDOW}:get-id`,
+    WINDOW_CLOSE: `${IPC_NAMESPACE_WINDOW}:close`,
 } as const
 
 export type IpcMethod = (typeof IPC_METHODS)[keyof typeof IPC_METHODS]
