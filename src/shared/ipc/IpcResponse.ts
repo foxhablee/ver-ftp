@@ -21,5 +21,6 @@ type AssertResponseMap<T extends Record<IpcMethod, IpcResponse<unknown, string>>
 export type IpcResponseMap = AssertResponseMap<{
     'ftp:connect': IpcResponse<{ connectionId: string }, 'error'>
     'ftp:get-list': IpcResponse<FsItem[], 'error'>
-    'subwindow:create': IpcResponse<undefined, 'error' | 'not_exists'>
+    'window:create': IpcResponse<undefined, 'error' | 'not_exists'>
+    'window:get-id': IpcResponse<number, 'error'>
 }>

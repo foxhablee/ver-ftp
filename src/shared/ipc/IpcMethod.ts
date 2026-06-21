@@ -1,10 +1,11 @@
 const IPC_NAMESPACE_FTP = 'ftp' as const
-const IPC_NAMESPACE_SUBWINDOW = 'subwindow' as const
+const IPC_NAMESPACE_WINDOW = 'window' as const
 
 export const IPC_METHODS = {
     FTP_CONNECT: `${IPC_NAMESPACE_FTP}:connect`,
     FTP_GET_LIST: `${IPC_NAMESPACE_FTP}:get-list`,
-    SUBWINDOW_CREATE: `${IPC_NAMESPACE_SUBWINDOW}:create`,
+    WINDOW_CREATE: `${IPC_NAMESPACE_WINDOW}:create`,
+    WINDOW_GET_ID: `${IPC_NAMESPACE_WINDOW}:get-id`,
 } as const
 
 export type IpcMethod = (typeof IPC_METHODS)[keyof typeof IPC_METHODS]

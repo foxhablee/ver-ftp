@@ -10,7 +10,7 @@ export function ipcHandlerSubwindowCreate(deps: Deps) {
     return async (
         _: IpcMainInvokeEvent,
         props: IpcCreateSubwindowProps,
-    ): Promise<IpcResponseMap[typeof IPC_METHODS.SUBWINDOW_CREATE]> => {
+    ): Promise<IpcResponseMap[typeof IPC_METHODS.WINDOW_CREATE]> => {
         try {
             if (!pageRegistry.includes(props.page)) {
                 console.error(`Trying create new window with page '${props.page}' not from allowed list`)

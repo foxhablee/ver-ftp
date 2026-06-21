@@ -12,6 +12,6 @@ interface Props {
 export function registerIpcHandlers({ parentWindow: parent }: Props): void {
     ipcMain.handle(IPC_METHODS.FTP_CONNECT, ipcHandlerFTPConnect)
     ipcMain.handle(IPC_METHODS.FTP_GET_LIST, ipcHandlerFtpGetList)
-    ipcMain.handle(IPC_METHODS.SUBWINDOW_CREATE, ipcHandlerSubwindowCreate({ parent }))
+    ipcMain.handle(IPC_METHODS.WINDOW_CREATE, ipcHandlerSubwindowCreate({ parent }))
     ipcMain.handle(IPC_METHODS.WINDOW_GET_ID, ipcHandlerWindowGetId)
 }
