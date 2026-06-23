@@ -1,6 +1,6 @@
 import { BrowserWindow, shell } from 'electron'
 import { PATHS } from '@/backend/shared/lib'
-import { Subwindow } from '../model/subwindow-create.ipc-model'
+import { Subwindow } from '../model/window-create.ipc-model'
 
 export function createSubwindow(props: Subwindow): BrowserWindow {
     const newWindow = new BrowserWindow({
