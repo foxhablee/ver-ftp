@@ -20,7 +20,7 @@ export type ErrorIpcResponse<TCode extends string = 'error'> = IpcErrorText & {
     code: TCode
 }
 
-export type IpcResponse<TReturnType, TErrorCodes extends string = 'error'> =
+export type IpcResponse<TReturnType = void, TErrorCodes extends string = 'error'> =
     | OkIpcResponse<TReturnType>
     | ErrorIpcResponse<TErrorCodes extends 'error' ? 'error' : TErrorCodes | 'error'>
 
@@ -31,5 +31,5 @@ export type IpcResponseMap = AssertResponseMap<{
     'ftp:get-list': IpcResponse<FsItem[]>
     'window:create': IpcResponse<undefined, 'not_exists'>
     'window:get-id': IpcResponse<number>
-    'window:close': IpcResponse<undefined, 'not_found'>
+    'window:close': IpcResponse<void, 'not_found'>
 }>
