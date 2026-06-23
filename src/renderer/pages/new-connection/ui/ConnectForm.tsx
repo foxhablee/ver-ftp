@@ -3,6 +3,7 @@ import { Button, MenuItem, Select, Stack, TextField } from '@mui/material'
 import { CONNECTION_PROTOCOLS, ConnectionItem, ConnectionProtocol } from '@/shared/model'
 import { useDispatch } from 'react-redux'
 import { connect } from '@/renderer/entities/connection'
+import { getPageId } from '@/renderer/shared/api'
 
 function ConnectForm(): React.JSX.Element {
     const [protocol, setProtocol] = useState<ConnectionProtocol>(CONNECTION_PROTOCOLS.FTP)
@@ -32,6 +33,8 @@ function ConnectForm(): React.JSX.Element {
         setLoading(false)
         if (connectionResponse.ok) {
             dispatch(connect({ ...newConnection, id: connectionResponse.data.connectionId }))
+            const pageId = await getPageId()
+            window.api.window.close({ id: pageId })
         }
     }
 

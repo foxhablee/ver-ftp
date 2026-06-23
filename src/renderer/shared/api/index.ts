@@ -1,0 +1,1 @@
+export { getPageId } from './getPageId'
