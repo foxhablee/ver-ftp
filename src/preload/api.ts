@@ -9,8 +9,8 @@ import { WindowCloseMethod } from '@/backend/features/close-window/model/window-
 
 export function makeIpcHandler<TMethodObj extends IpcMethodLike>(
     method: TMethodObj['method'],
-): (props: TMethodObj['props']) => Promise<TMethodObj['response']> {
-    return (props: TMethodObj['props']) => ipcRenderer.invoke(method, props)
+): (props: TMethodObj['props'] extends object ? TMethodObj['props'] : void) => Promise<TMethodObj['response']> {
+    return (props) => ipcRenderer.invoke(method, props)
 }
 
 export const api = {
