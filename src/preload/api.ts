@@ -1,10 +1,10 @@
 import { ipcRenderer } from 'electron'
 import { IpcMethodLike } from '@/shared/ipc'
 
-import { invokeFTPConnect } from './api/ftp-connect'
 import { invokeCreateSubwindow } from './api/subwindow-create'
 import { invokeFTPGetList } from './api/ftp-get-list'
 import { invokeWindowGetId } from './api/window-get-id'
+import { FtpConnectMethod } from '@/backend/features/ftp-connect/model/ftp-connect.ipc-model'
 import { WindowCloseMethod } from '@/backend/features/close-window/model/window-close.ipc-model'
 
 export function makeIpcHandler<TMethodObj extends IpcMethodLike>(
@@ -15,7 +15,7 @@ export function makeIpcHandler<TMethodObj extends IpcMethodLike>(
 
 export const api = {
     ftp: {
-        connect: invokeFTPConnect,
+        connect: makeIpcHandler<FtpConnectMethod>('ftp:connect'),
         getList: invokeFTPGetList,
     },
     window: {
