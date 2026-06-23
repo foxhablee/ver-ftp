@@ -1,4 +1,4 @@
-import { IpcError } from '@/shared/ipc'
+import { ExtractReturnTypeFromIpcMethod, IpcError } from '@/shared/ipc'
 import { pageRegistry } from '@/shared/model'
 import { wrapIpcHandler } from '@/backend/shared/lib'
 import { createSubwindow } from '../api/create-subwindow'
@@ -7,12 +7,17 @@ import { Subwindow, WINDOW_CREATE_METHOD_CHANNEL, WindowCreateMethod } from '../
 
 type Deps = Pick<Subwindow, 'parent'>
 
-export function ipcHandlerWindowCreate(deps: Deps) {
-    return wrapIpcHandler(WINDOW_CREATE_METHOD_CHANNEL, async (_, props: WindowCreateMethod['props']) => {
-        if (!pageRegistry.includes(props.page)) {
-            throw new IpcError('not_exists', `page content ${props.page} not exists`)
-        }
-        const win = createSubwindow({ ...deps, size: props.size, modal: props.modal })
-        loadSubwindowContent(win, { page: props.page })
-    })
+export function ipcHandlerWindowCreate(
+    deps: Deps,
+): (_, props: WindowCreateMethod['props']) => Promise<WindowCreateMethod['response']> {
+    return wrapIpcHandler(
+        WINDOW_CREATE_METHOD_CHANNEL,
+        async (_, props: WindowCreateMethod['props']): Promise<ExtractReturnTypeFromIpcMethod<WindowCreateMethod>> => {
+            if (!pageRegistry.includes(props.page)) {
+                throw new IpcError('not_exists', `page content ${props.page} not exists`)
+            }
+            const win = createSubwindow({ ...deps, size: props.size, modal: props.modal })
+            loadSubwindowContent(win, { page: props.page })
+        },
+    )
 }
