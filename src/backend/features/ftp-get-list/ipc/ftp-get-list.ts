@@ -1,5 +1,5 @@
 import { getFsItemsList } from '@/backend/features/ftp-get-list'
-import { connectionsMap } from '@/backend/shared/api'
+import { connectionsMap } from '@/backend/shared/model'
 import { wrapIpcHandler } from '@/backend/shared/lib'
 import { FTP_GET_LIST_METHOD_CHANNEL, FtpGetListMethod } from '../model/ftp-get-list.ipc-model'
 

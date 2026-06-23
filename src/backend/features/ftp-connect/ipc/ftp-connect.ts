@@ -1,4 +1,4 @@
-import { connectionsMap } from '@/backend/shared/api'
+import { connectionsMap } from '@/backend/shared/model'
 import { createConnection } from '@/backend/features/ftp-connect'
 import { wrapIpcHandler } from '@/backend/shared/lib'
 import { FTP_CONNECT_METHOD_CHANNEL, FtpConnectMethod } from '../model/ftp-connect.ipc-model'

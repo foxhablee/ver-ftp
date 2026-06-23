@@ -1,1 +1,0 @@
-export { connectionsMap } from './connections'
