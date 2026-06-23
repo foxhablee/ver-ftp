@@ -6,22 +6,30 @@ export interface OkIpcResponse<T> {
     data: T
 }
 
-export interface ErrorIpcResponse<TCode extends string> {
+type IpcErrorText =
+    | {
+          text: string
+      }
+    | {
+          /** @deprecated */
+          errorText: string
+      }
+
+export type ErrorIpcResponse<TCode extends string = 'error'> = IpcErrorText & {
     ok: false
     code: TCode
-    errorText: string
 }
 
-export type IpcResponse<TReturnType, TErrorCodes extends string> =
+export type IpcResponse<TReturnType, TErrorCodes extends string = 'error'> =
     | OkIpcResponse<TReturnType>
-    | ErrorIpcResponse<TErrorCodes>
+    | ErrorIpcResponse<TErrorCodes extends 'error' ? 'error' : TErrorCodes | 'error'>
 
 type AssertResponseMap<T extends Record<IpcMethod, IpcResponse<unknown, string>>> = T
 
 export type IpcResponseMap = AssertResponseMap<{
-    'ftp:connect': IpcResponse<{ connectionId: string }, 'error'>
-    'ftp:get-list': IpcResponse<FsItem[], 'error'>
-    'window:create': IpcResponse<undefined, 'error' | 'not_exists'>
-    'window:get-id': IpcResponse<number, 'error'>
-    'window:close': IpcResponse<undefined, 'error' | 'not_found'>
+    'ftp:connect': IpcResponse<{ connectionId: string }>
+    'ftp:get-list': IpcResponse<FsItem[]>
+    'window:create': IpcResponse<undefined, 'not_exists'>
+    'window:get-id': IpcResponse<number>
+    'window:close': IpcResponse<undefined, 'not_found'>
 }>
