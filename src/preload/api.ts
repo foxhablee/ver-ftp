@@ -5,7 +5,7 @@ import { invokeFTPConnect } from './api/ftp-connect'
 import { invokeCreateSubwindow } from './api/subwindow-create'
 import { invokeFTPGetList } from './api/ftp-get-list'
 import { invokeWindowGetId } from './api/window-get-id'
-import { invokeWindowClose } from './api/window-close'
+import { WindowCloseMethod } from '@/backend/features/close-window/model/window-close.ipc-model'
 
 export function makeIpcHandler<TMethodObj extends IpcMethodLike>(
     method: TMethodObj['method'],
@@ -21,7 +21,7 @@ export const api = {
     window: {
         create: invokeCreateSubwindow,
         getId: invokeWindowGetId,
-        close: invokeWindowClose,
+        close: makeIpcHandler<WindowCloseMethod>('window:close'),
     },
 }
 
