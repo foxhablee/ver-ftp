@@ -1,4 +1,4 @@
-import { ExtractReturnTypeFromIpcMethod, IpcError } from '@/shared/ipc'
+import { ExtractDataTypeFromIpcMethod, IpcError } from '@/shared/ipc'
 import { pageRegistry } from '@/shared/model'
 import { wrapIpcHandler } from '@/backend/shared/lib'
 import { createSubwindow } from '../api/create-subwindow'
@@ -12,7 +12,7 @@ export function ipcHandlerWindowCreate(
 ): (_, props: WindowCreateMethod['props']) => Promise<WindowCreateMethod['response']> {
     return wrapIpcHandler(
         WINDOW_CREATE_METHOD_CHANNEL,
-        async (_, props: WindowCreateMethod['props']): Promise<ExtractReturnTypeFromIpcMethod<WindowCreateMethod>> => {
+        async (_, props: WindowCreateMethod['props']): Promise<ExtractDataTypeFromIpcMethod<WindowCreateMethod>> => {
             if (!pageRegistry.includes(props.page)) {
                 throw new IpcError('not_exists', `page content ${props.page} not exists`)
             }

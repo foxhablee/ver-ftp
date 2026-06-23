@@ -15,7 +15,7 @@ export type IpcResponse<TReturnType extends object | void, TErrorCodes extends s
     | OkIpcResponse<TReturnType>
     | ErrorIpcResponse<TErrorCodes>
 
-export type ExtractReturnTypeFromIpcMethod<TMethod extends IpcMethodLike> = Extract<
+export type ExtractDataTypeFromIpcMethod<TMethod extends IpcMethodLike> = Extract<
     TMethod['response'],
     { ok: true }
 >['data']
