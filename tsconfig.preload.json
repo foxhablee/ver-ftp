@@ -5,6 +5,7 @@
     "electron.vite.config.*",
     "src/preload/**/*",
     "src/shared/**/*",
+    "src/backend/**/*.ipc-model.*",
   ],
   "exclude": [],
   "compilerOptions": {

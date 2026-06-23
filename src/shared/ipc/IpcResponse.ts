@@ -22,7 +22,7 @@ export type ErrorIpcResponse<TCode extends string = 'error'> = IpcErrorText & {
 
 export type IpcResponse<TReturnType = void, TErrorCodes extends string = 'error'> =
     | OkIpcResponse<TReturnType>
-    | ErrorIpcResponse<TErrorCodes extends 'error' ? 'error' : TErrorCodes | 'error'>
+    | ErrorIpcResponse<TErrorCodes | 'error'>
 
 type AssertResponseMap<T extends Record<IpcMethod, IpcResponse<unknown, string>>> = T
 
