@@ -3,18 +3,10 @@ export interface OkIpcResponse<T> {
     data: T
 }
 
-type IpcErrorText =
-    | {
-          text: string
-      }
-    | {
-          /** @deprecated */
-          errorText: string
-      }
-
-export type ErrorIpcResponse<TCode extends string = 'error'> = IpcErrorText & {
+export type ErrorIpcResponse<TCode extends string = 'error'> = {
     ok: false
     code: TCode
+    text: string
 }
 
 export type IpcResponse<TReturnType = void, TErrorCodes extends string = 'error'> =
