@@ -1,12 +1,10 @@
 import type { IpcMainInvokeEvent } from 'electron'
-import { IpcError, IpcResponse } from '@/shared/ipc'
+import { ExtractDataTypeFromIpcMethod, IpcError, IpcMethodLike } from '@/shared/ipc'
 
-type IpcHandler<TArgs, TData> = (event: IpcMainInvokeEvent, args: TArgs) => Promise<TData>
-
-export function wrapIpcHandler<TArgs extends object | void, TData extends unknown | void, TCode extends string>(
-    method: string,
-    handler: IpcHandler<TArgs, TData>,
-): (event: IpcMainInvokeEvent, args: TArgs) => Promise<IpcResponse<TData, TCode>> {
+export function wrapIpcHandler<TMethod extends IpcMethodLike>(
+    method: TMethod['method'],
+    handler: (event: IpcMainInvokeEvent, args: TMethod['props']) => Promise<ExtractDataTypeFromIpcMethod<TMethod>>,
+): (event: IpcMainInvokeEvent, args: TMethod['props']) => Promise<TMethod['response']> {
     return async (_event, _args) => {
         try {
             const data = await handler(_event, _args)

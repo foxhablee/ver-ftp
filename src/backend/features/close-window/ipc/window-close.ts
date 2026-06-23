@@ -8,8 +8,8 @@ interface Deps {
     parent: BrowserWindow
 }
 
-export function ipcHandlerWindowClose(deps: Deps) {
-    return wrapIpcHandler(WINDOW_CLOSE_METHOD_CHANNEL, async (_, props: WindowCloseMethod['props']) => {
+export function ipcHandlerWindowClose(deps: Deps): ReturnType<typeof wrapIpcHandler<WindowCloseMethod>> {
+    return wrapIpcHandler<WindowCloseMethod>(WINDOW_CLOSE_METHOD_CHANNEL, async (_, props) => {
         const closed = closeWindow({ parent: deps.parent, id: props.id })
         if (!closed) {
             throw new IpcError('not_found', `window with id ${props.id} not found`)

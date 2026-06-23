@@ -15,7 +15,7 @@ export interface IpcMethodObject {
 
 export type CreateIpcMethod<T extends IpcMethodObject> = {
     method: T['channel']
-    props: T['props'] extends void ? void : T['props']
+    props: T['props'] extends object ? T['props'] : void
     response: IpcResponse<
         T['response'] extends void ? void : T['response'],
         T['errors'] extends string ? T['errors'] | 'error' : 'error'
