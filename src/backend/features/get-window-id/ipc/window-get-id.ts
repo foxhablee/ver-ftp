@@ -1,15 +1,7 @@
-import type { IpcMainInvokeEvent } from 'electron'
-import { IPC_METHODS, IpcResponseMap } from '@/shared/ipc'
+import { wrapIpcHandler } from '@/backend/shared/lib'
 import { getWindowId } from '../api/get-window-id'
+import { WINDOW_GET_ID_METHOD_CHANNEL } from '../model/window-get-id.ipc-model'
 
-export async function ipcHandlerWindowGetId(
-    event: IpcMainInvokeEvent,
-): Promise<IpcResponseMap[typeof IPC_METHODS.WINDOW_GET_ID]> {
-    try {
-        const id = getWindowId(event.sender)
-        return { ok: true, data: id }
-    } catch (error) {
-        console.error(error)
-        return { ok: false, code: 'error', errorText: 'Error while getting window id' }
-    }
-}
+export const ipcHandlerWindowGetId = wrapIpcHandler(WINDOW_GET_ID_METHOD_CHANNEL, async (event) => {
+    return getWindowId(event.sender)
+})
