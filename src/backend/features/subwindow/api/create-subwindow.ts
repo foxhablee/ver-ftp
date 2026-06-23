@@ -1,6 +1,6 @@
 import { BrowserWindow, shell } from 'electron'
 import type { Subwindow } from '@/shared/model'
-import { PATHS } from '@/backend/shared/lib/path'
+import { PATHS } from '@/backend/shared/lib'
 
 export function createSubwindow(props: Subwindow): BrowserWindow {
     const newWindow = new BrowserWindow({

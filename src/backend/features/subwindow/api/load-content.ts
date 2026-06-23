@@ -1,7 +1,7 @@
 import type { BrowserWindow } from 'electron'
 import { is } from '@electron-toolkit/utils'
 import { pageRegistry, type SubwindowContent } from '@/shared/model'
-import { PATHS } from '@/backend/shared/lib/path'
+import { PATHS } from '@/backend/shared/lib'
 
 export function loadSubwindowContent(window: BrowserWindow, props: SubwindowContent): void {
     if (!pageRegistry.includes(props.page)) {
