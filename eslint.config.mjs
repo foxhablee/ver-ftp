@@ -27,4 +27,9 @@ export default defineConfig(
             ...eslintPluginReactRefresh.configs.vite.rules,
         },
     },
+    {
+        rules: {
+            '@typescript-eslint/explicit-function-return-type': 'off',
+        },
+    },
 )
