@@ -3,7 +3,7 @@ import { IpcError, IpcResponse } from '@/shared/ipc'
 
 type IpcHandler<TArgs, TData> = (event: IpcMainInvokeEvent, args: TArgs) => Promise<TData>
 
-export function wrapIpcHandler<TArgs extends object | void, TData extends object | void, TCode extends string>(
+export function wrapIpcHandler<TArgs extends object | void, TData extends unknown | void, TCode extends string>(
     method: string,
     handler: IpcHandler<TArgs, TData>,
 ): (event: IpcMainInvokeEvent, args: TArgs) => Promise<IpcResponse<TData, TCode>> {

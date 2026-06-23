@@ -1,6 +1,6 @@
 import { IpcMethodLike } from '@/shared/ipc/IpcMethod'
 
-export interface OkIpcResponse<T extends object | void> {
+export interface OkIpcResponse<T extends unknown | void> {
     ok: true
     data: T
 }
@@ -11,7 +11,7 @@ export type ErrorIpcResponse<TCode extends string> = {
     text: string
 }
 
-export type IpcResponse<TReturnType extends object | void, TErrorCodes extends string> =
+export type IpcResponse<TReturnType extends unknown | void, TErrorCodes extends string> =
     | OkIpcResponse<TReturnType>
     | ErrorIpcResponse<TErrorCodes>
 
