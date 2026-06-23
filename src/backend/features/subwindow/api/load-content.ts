@@ -1,7 +1,8 @@
 import type { BrowserWindow } from 'electron'
 import { is } from '@electron-toolkit/utils'
-import { pageRegistry, type SubwindowContent } from '@/shared/model'
+import { pageRegistry } from '@/shared/model'
 import { PATHS } from '@/backend/shared/lib'
+import { SubwindowContent } from '../model/subwindow-create.ipc-model'
 
 export function loadSubwindowContent(window: BrowserWindow, props: SubwindowContent): void {
     if (!pageRegistry.includes(props.page)) {

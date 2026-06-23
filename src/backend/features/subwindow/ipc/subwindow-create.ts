@@ -1,9 +1,9 @@
 import { IpcError } from '@/shared/ipc'
-import { pageRegistry, type Subwindow } from '@/shared/model'
+import { pageRegistry } from '@/shared/model'
 import { wrapIpcHandler } from '@/backend/shared/lib'
 import { createSubwindow } from '../api/create-subwindow'
 import { loadSubwindowContent } from '../api/load-content'
-import { WINDOW_CREATE_METHOD_CHANNEL, WindowCreateMethod } from '../model/subwindow-create.ipc-model'
+import { Subwindow, WINDOW_CREATE_METHOD_CHANNEL, WindowCreateMethod } from '../model/subwindow-create.ipc-model'
 
 type Deps = Pick<Subwindow, 'parent'>
 
