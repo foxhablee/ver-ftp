@@ -6,6 +6,7 @@ import { FtpGetListMethod } from '@/backend/features/ftp-get-list/model/ftp-get-
 import { WindowCreateMethod } from '@/backend/features/window-create/model/window-create.ipc-model'
 import { WindowGetIdMethod } from '@/backend/features/get-window-id/model/window-get-id.ipc-model'
 import { WindowCloseMethod } from '@/backend/features/close-window/model/window-close.ipc-model'
+import { LocalPathContentMethod } from '@/backend/features/local-path-content/model/local-path-content.ipc-model'
 
 export function makeIpcHandler<TMethodObj extends IpcMethodLike>(
     method: TMethodObj['method'],
@@ -22,6 +23,9 @@ export const api = {
         create: makeIpcHandler<WindowCreateMethod>('window:create'),
         getId: makeIpcHandler<WindowGetIdMethod>('window:get-id'),
         close: makeIpcHandler<WindowCloseMethod>('window:close'),
+    },
+    local: {
+        pathContent: makeIpcHandler<LocalPathContentMethod>('local:path-content'),
     },
 }
 
