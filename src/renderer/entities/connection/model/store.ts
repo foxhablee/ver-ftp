@@ -1,23 +1,17 @@
 import { RegisteredConnection } from '@/shared/model'
-import { createSlice, PayloadAction } from '@reduxjs/toolkit'
+import { createEntityAdapter, createSlice, PayloadAction } from '@reduxjs/toolkit'
 
-export interface ConnectionsState {
-    value: Map<string, RegisteredConnection>
-}
-
-const initialState: ConnectionsState = {
-    value: new Map(),
-}
+const adapter = createEntityAdapter<RegisteredConnection>()
 
 export const connectionSlice = createSlice({
     name: 'connections',
-    initialState,
+    initialState: adapter.getInitialState(),
     reducers: {
         connect: (state, action: PayloadAction<RegisteredConnection>) => {
-            state.value.set(action.payload.id, action.payload)
+            adapter.upsertOne(state, action.payload)
         },
         disconnect: (state, action: PayloadAction<RegisteredConnection>) => {
-            state.value.delete(action.payload.id)
+            adapter.removeOne(state, action.payload.id)
         },
     },
 })
@@ -25,3 +19,5 @@ export const connectionSlice = createSlice({
 export const { connect, disconnect } = connectionSlice.actions
 
 export default connectionSlice.reducer
+
+export const connectionSelectors = adapter.getSelectors<RootState>((s) => s.connection)

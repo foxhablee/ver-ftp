@@ -1,1 +1,1 @@
-export { connect, disconnect, default as connectionReducer } from './model/store'
+export { connect, disconnect, default as connectionReducer, connectionSelectors } from './model/store'
