@@ -15,5 +15,5 @@ export interface FsItem {
     type?: string
     /** Size in bytes; `undefined` for directory/parent */
     size?: number
-    modifiedAt?: Date
+    modifiedAt?: number
 }
