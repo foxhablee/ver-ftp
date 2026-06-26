@@ -1,12 +1,13 @@
 import React, { useContext } from 'react'
-import { IconButton, Stack, SxProps, Theme, Typography } from '@mui/material'
-import { FileManagerContext } from '../model/FileManagerContext'
+import { Divider, IconButton, Stack, SxProps, Theme, Typography } from '@mui/material'
 import { usePathContentQuery } from '@/renderer/entities/fs-item'
+import { FileManagerContext } from '../model/FileManagerContext'
+import FileManagerBreadcrumbs from './FileManagerBreadcrumbs'
 
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
 import CachedIcon from '@mui/icons-material/Cached'
-import CreateNewFolderIcon from '@mui/icons-material/CreateNewFolder'
 import NoteAddIcon from '@mui/icons-material/NoteAdd'
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
+import CreateNewFolderIcon from '@mui/icons-material/CreateNewFolder'
 
 const titleSx = (theme: Theme) =>
     ({
@@ -17,6 +18,15 @@ const titleSx = (theme: Theme) =>
         },
     }) as const satisfies SxProps<Theme>
 
+const panelSx = (theme: Theme) =>
+    ({
+        pb: 2,
+        position: 'sticky',
+        top: 0,
+        pt: 1,
+        bgcolor: theme.palette.background.default,
+    }) as const satisfies SxProps<Theme>
+
 function FileManagerPanel(): React.JSX.Element {
     const { connectionId, path } = useContext(FileManagerContext)
     const { refetch } = usePathContentQuery({ path: path.join('/') })
@@ -24,7 +34,7 @@ function FileManagerPanel(): React.JSX.Element {
     const name = connectionId === -1 ? 'local' : `connection ${connectionId}`
 
     return (
-        <Stack sx={{ mt: 1, mb: 2 }}>
+        <Stack sx={panelSx}>
             <Stack sx={titleSx} direction='row' spacing={0.3}>
                 <Typography variant='h6'>{name}</Typography>
                 <ExpandMoreIcon />
@@ -40,6 +50,8 @@ function FileManagerPanel(): React.JSX.Element {
                     <NoteAddIcon />
                 </IconButton>
             </Stack>
+            <FileManagerBreadcrumbs />
+            <Divider />
         </Stack>
     )
 }
