@@ -1,11 +1,15 @@
 import { configureStore } from '@reduxjs/toolkit'
-import { connectionReducer } from '@/renderer/entities/connection'
+import { api } from '@/renderer/shared/api'
+import { setupListeners } from '@reduxjs/toolkit/query'
 
 export const store = configureStore({
     reducer: {
-        connection: connectionReducer,
+        [api.reducerPath]: api.reducer,
     },
+    middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(api.middleware),
 })
+
+setupListeners(store.dispatch)
 
 declare global {
     type RootState = ReturnType<typeof store.getState>
