@@ -9,10 +9,13 @@ import { FileManager } from '@/renderer/features/file-manager'
 
 function MainPage(): React.JSX.Element {
     return (
-        <Stack sx={{ height: '100%' }} direction='row'>
+        <Stack sx={{ height: '100vh' }} direction='row'>
             <Toolbar side='left' tools={[bookmarksTool]} />
-            <Stack sx={{ width: '100%' }}>
-                <FileManager />
+            <Stack sx={{ width: '100%', height: '100%', overflow: 'auto' }}>
+                <Stack sx={{ height: '100%' }} direction='row'>
+                    <FileManager />
+                    <FileManager />
+                </Stack>
             </Stack>
             <Toolbar side='right' tools={[connectionsTool, gitHistoryTool]} />
         </Stack>
