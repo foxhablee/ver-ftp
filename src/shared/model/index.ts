@@ -1,4 +1,4 @@
-export type { ConnectionConfig, ConnectionProtocol, RegisteredConnection, Connection } from './Connection'
+export type { ConnectionConfig, ConnectionProtocol, Connection } from './Connection'
 export { CONNECTION_PROTOCOLS } from './Connection'
 export { FS_ITEM_KIND, type FsItem, type FsItemKind } from './FsItem'
 export { pageRegistry, type PageRegistry, PAGES_IDS, type PageLink } from './PageRegistry'

@@ -16,10 +16,6 @@ export interface ConnectionConfig {
     savePassword: boolean
 }
 
-export interface RegisteredConnection extends ConnectionConfig {
-    id: string
-}
-
 export interface Connection {
     id: string
 }
