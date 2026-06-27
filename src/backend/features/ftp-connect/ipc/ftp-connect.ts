@@ -9,6 +9,6 @@ export const ipcHandlerFTPConnect = wrapIpcHandler<FtpConnectMethod>(
         const id = crypto.randomUUID()
         const newConnection = await createConnection(connection)
         connectionsMap.set(id, newConnection)
-        return { connectionId: id }
+        return { id }
     },
 )

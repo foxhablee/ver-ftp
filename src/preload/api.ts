@@ -25,6 +25,10 @@ import {
     LOCAL_PATH_CONTENT_METHOD_CHANNEL,
     LocalPathContentMethod,
 } from '@/backend/features/local-path-content/model/local-path-content.ipc-model'
+import {
+    FTP_CONNECTIONS_LIST_CHANNEL,
+    FtpConnectionsListMethod,
+} from '@/backend/features/ftp-connections-list/model/ftp-connect.ipc-model'
 
 export function makeIpcHandler<TMethodObj extends IpcMethodLike>(
     method: TMethodObj['method'],
@@ -35,6 +39,7 @@ export function makeIpcHandler<TMethodObj extends IpcMethodLike>(
 export const api = {
     [FTP_CONNECT_METHOD_CHANNEL]: makeIpcHandler<FtpConnectMethod>('ftp:connect'),
     [FTP_GET_LIST_METHOD_CHANNEL]: makeIpcHandler<FtpGetListMethod>('ftp:get-list'),
+    [FTP_CONNECTIONS_LIST_CHANNEL]: makeIpcHandler<FtpConnectionsListMethod>('ftp:connections-list'),
     [WINDOW_CREATE_METHOD_CHANNEL]: makeIpcHandler<WindowCreateMethod>('window:create'),
     [WINDOW_GET_ID_METHOD_CHANNEL]: makeIpcHandler<WindowGetIdMethod>('window:get-id'),
     [WINDOW_CLOSE_METHOD_CHANNEL]: makeIpcHandler<WindowCloseMethod>('window:close'),

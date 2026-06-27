@@ -5,6 +5,7 @@ import { WINDOW_CREATE_METHOD_CHANNEL, ipcHandlerWindowCreate } from '@/backend/
 import { WINDOW_GET_ID_METHOD_CHANNEL, ipcHandlerWindowGetId } from '@/backend/features/get-window-id'
 import { WINDOW_CLOSE_METHOD_CHANNEL, ipcHandlerWindowClose } from '@/backend/features/close-window'
 import { LOCAL_PATH_CONTENT_METHOD_CHANNEL, ipcHandlerLocalPathContent } from '@/backend/features/local-path-content'
+import { FTP_CONNECTIONS_LIST_CHANNEL, ipcHandlerFtpConnectionsList } from '@/backend/features/ftp-connections-list'
 
 interface Props {
     parentWindow: BrowserWindow
@@ -13,6 +14,7 @@ interface Props {
 export function registerIpcHandlers({ parentWindow: parent }: Props): void {
     ipcMain.handle(FTP_CONNECT_METHOD_CHANNEL, ipcHandlerFTPConnect)
     ipcMain.handle(FTP_GET_LIST_METHOD_CHANNEL, ipcHandlerFtpGetList)
+    ipcMain.handle(FTP_CONNECTIONS_LIST_CHANNEL, ipcHandlerFtpConnectionsList)
     ipcMain.handle(WINDOW_CREATE_METHOD_CHANNEL, ipcHandlerWindowCreate({ parent }))
     ipcMain.handle(WINDOW_GET_ID_METHOD_CHANNEL, ipcHandlerWindowGetId)
     ipcMain.handle(WINDOW_CLOSE_METHOD_CHANNEL, ipcHandlerWindowClose({ parent }))

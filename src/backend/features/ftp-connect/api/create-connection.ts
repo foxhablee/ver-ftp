@@ -1,8 +1,8 @@
-import { ConnectionItem } from '@/shared/model'
+import { ConnectionConfig } from '@/shared/model'
 import { FTPConnection } from '@/backend/shared/model'
 import { AccessOptions, Client } from 'basic-ftp'
 
-export async function createConnection(options: ConnectionItem): Promise<FTPConnection> {
+export async function createConnection(options: ConnectionConfig): Promise<FTPConnection> {
     const accessOptions: AccessOptions = {
         host: options.host,
         port: options.port,
