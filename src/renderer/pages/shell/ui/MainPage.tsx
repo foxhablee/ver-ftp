@@ -1,21 +1,17 @@
 import React from 'react'
 import { Stack } from '@mui/material'
-import Toolbar from './Toolbar'
-
 import { bookmarksTool } from '@/renderer/features/bookmarks-tool'
 import { connectionsTool } from '@/renderer/features/connections-tool'
 import { gitHistoryTool } from '@/renderer/features/git-history-tool'
-import { FileManager } from '@/renderer/features/file-manager'
+import { FileManagerTabs } from '@/renderer/widgets/FileManagerTabs'
+import Toolbar from './Toolbar'
 
 function MainPage(): React.JSX.Element {
     return (
         <Stack sx={{ height: '100vh' }} direction='row'>
             <Toolbar side='left' tools={[bookmarksTool]} />
             <Stack sx={{ width: '100%', height: '100%', overflow: 'auto' }}>
-                <Stack sx={{ height: '100%' }} direction='row'>
-                    <FileManager />
-                    <FileManager />
-                </Stack>
+                <FileManagerTabs />
             </Stack>
             <Toolbar side='right' tools={[connectionsTool, gitHistoryTool]} />
         </Stack>
