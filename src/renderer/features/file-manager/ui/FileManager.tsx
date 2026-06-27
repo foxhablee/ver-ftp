@@ -18,7 +18,7 @@ const fileManagerSx = (theme: Theme) =>
 
 function FileManager(): React.JSX.Element {
     return (
-        <FileManagerProvider connectionId={-1}>
+        <FileManagerProvider>
             <Stack sx={fileManagerSx}>
                 <FileManagerPanel />
                 <FileManagerList />

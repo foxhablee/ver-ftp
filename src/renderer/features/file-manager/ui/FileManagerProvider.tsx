@@ -1,17 +1,12 @@
 import React, { PropsWithChildren, useState } from 'react'
-import { FileManagerContext, FileManageContextValue } from '../model/FileManagerContext'
+import { FileManagerContext } from '../model/FileManagerContext'
 
-type Props = Pick<FileManageContextValue, 'connectionId'> & PropsWithChildren
+type Props = PropsWithChildren
 
-function FileManagerProvider({ children, connectionId: initConnectionId }: Props): React.JSX.Element {
-    const [connectionId, setConnectionId] = useState(initConnectionId)
-    const [path, setPath] = useState<string[]>(connectionId === -1 ? ['C:'] : [])
+function FileManagerProvider({ children }: Props): React.JSX.Element {
+    const [path, setPath] = useState<string[]>(['C:'])
 
-    return (
-        <FileManagerContext.Provider value={{ connectionId, setConnectionId, path, setPath }}>
-            {children}
-        </FileManagerContext.Provider>
-    )
+    return <FileManagerContext.Provider value={{ path, setPath }}>{children}</FileManagerContext.Provider>
 }
 
 export default FileManagerProvider
