@@ -5,7 +5,7 @@ import { Breadcrumb } from '../model/Breadcrumb'
 const slashSx = () =>
     ({
         cursor: 'default',
-        ':first-child': {
+        ':first-of-type': {
             display: 'none',
         },
     }) as const satisfies SxProps<Theme>
