@@ -9,6 +9,7 @@ import CachedIcon from '@mui/icons-material/Cached'
 import NoteAddIcon from '@mui/icons-material/NoteAdd'
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
 import CreateNewFolderIcon from '@mui/icons-material/CreateNewFolder'
+import ConnectionsMenu from '../../../entities/connection/ui/ConnectionsMenu'
 
 const titleSx = (theme: Theme) =>
     ({
@@ -39,8 +40,9 @@ function FileManagerPanel(): React.JSX.Element {
             <Stack sx={titleSx} direction='row' spacing={0.3}>
                 <Typography variant='h6'>{name}</Typography>
                 <ExpandMoreIcon />
+                <ConnectionsMenu open={false} />
             </Stack>
-            <Stack direction='row'>
+            <Stack direction='row' spacing={0.5}>
                 <OutlineIconButton icon={CachedIcon} onClick={refetch} />
                 <OutlineIconButton icon={CreateNewFolderIcon} />
                 <OutlineIconButton icon={NoteAddIcon} />
