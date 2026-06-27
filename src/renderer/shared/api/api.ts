@@ -7,7 +7,7 @@ type IpcApiChannel = keyof IpcApi
 export type ExtractIpcChannelProps<TChannel extends IpcApiChannel> = Parameters<IpcApi[TChannel]>[0] extends
     | undefined
     | void
-    ? never
+    ? void
     : Parameters<IpcApi[TChannel]>[0]
 
 export type ExtractIpcChannelReturnType<TChannel extends IpcApiChannel> = Extract<
