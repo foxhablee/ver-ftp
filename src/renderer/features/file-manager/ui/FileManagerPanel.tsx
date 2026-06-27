@@ -1,6 +1,7 @@
 import React, { useContext } from 'react'
-import { Divider, IconButton, Stack, SxProps, Theme, Typography } from '@mui/material'
+import { Divider, Stack, SxProps, Theme, Typography } from '@mui/material'
 import { usePathContentQuery } from '@/renderer/entities/fs-item'
+import { OutlineIconButton } from '@/renderer/shared/ui'
 import { FileManagerContext } from '../model/FileManagerContext'
 import FileManagerBreadcrumbs from './FileManagerBreadcrumbs'
 
@@ -40,15 +41,9 @@ function FileManagerPanel(): React.JSX.Element {
                 <ExpandMoreIcon />
             </Stack>
             <Stack direction='row'>
-                <IconButton size='small' onClick={refetch}>
-                    <CachedIcon />
-                </IconButton>
-                <IconButton size='small'>
-                    <CreateNewFolderIcon />
-                </IconButton>
-                <IconButton size='small'>
-                    <NoteAddIcon />
-                </IconButton>
+                <OutlineIconButton icon={CachedIcon} onClick={refetch} />
+                <OutlineIconButton icon={CreateNewFolderIcon} />
+                <OutlineIconButton icon={NoteAddIcon} />
             </Stack>
             <FileManagerBreadcrumbs />
             <Divider />
