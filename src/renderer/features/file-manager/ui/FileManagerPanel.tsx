@@ -29,10 +29,10 @@ const panelSx = (theme: Theme) =>
     }) as const satisfies SxProps<Theme>
 
 function FileManagerPanel(): React.JSX.Element {
-    const { connectionId, path } = useContext(FileManagerContext)
+    const { path } = useContext(FileManagerContext)
     const { refetch } = usePathContentQuery({ path: path.join('/') })
 
-    const name = connectionId === -1 ? 'local' : `connection ${connectionId}`
+    const name = 'local'
 
     return (
         <Stack sx={panelSx}>
