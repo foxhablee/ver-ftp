@@ -6,7 +6,7 @@ export const CONNECTION_PROTOCOLS = {
 
 export type ConnectionProtocol = (typeof CONNECTION_PROTOCOLS)[keyof typeof CONNECTION_PROTOCOLS]
 
-export interface ConnectionItem {
+export interface ConnectionConfig {
     name: string
     host: string
     port: number
@@ -16,6 +16,10 @@ export interface ConnectionItem {
     savePassword: boolean
 }
 
-export interface RegisteredConnection extends ConnectionItem {
+export interface RegisteredConnection extends ConnectionConfig {
+    id: string
+}
+
+export interface Connection {
     id: string
 }

@@ -1,5 +1,5 @@
-export type { ConnectionItem, ConnectionProtocol, RegisteredConnection } from './ConnectionItem'
-export { CONNECTION_PROTOCOLS } from './ConnectionItem'
+export type { ConnectionConfig, ConnectionProtocol, RegisteredConnection, Connection } from './Connection'
+export { CONNECTION_PROTOCOLS } from './Connection'
 export { FS_ITEM_KIND, type FsItem, type FsItemKind } from './FsItem'
 export { pageRegistry, type PageRegistry, PAGES_IDS, type PageLink } from './PageRegistry'
 export type { IpcWindowCloseProps } from './Window'
