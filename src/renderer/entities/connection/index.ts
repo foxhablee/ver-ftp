@@ -1,1 +1,1 @@
-export { connect, disconnect, default as connectionReducer, connectionSelectors } from './model/store'
+export { useFtpConnectQuery, useLazyFtpConnectQuery, useFtpConnectionsListQuery } from './api/ftp-connections'

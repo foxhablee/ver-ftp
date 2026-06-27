@@ -1,9 +1,12 @@
 import React from 'react'
 import { Button } from '@mui/material'
+import { useLazyCreateWindowQuery } from '@/renderer/shared/api'
 
 function ConnectionsPanel(): React.JSX.Element {
+    const [createWindow] = useLazyCreateWindowQuery()
+
     function clickHandler(): void {
-        window.api.window.create({ page: 'new-connection' })
+        createWindow({ page: 'new-connection' })
     }
 
     return (

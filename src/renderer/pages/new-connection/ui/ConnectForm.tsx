@@ -1,9 +1,8 @@
 import React, { useState } from 'react'
 import { Button, MenuItem, Select, Stack, TextField } from '@mui/material'
-import { CONNECTION_PROTOCOLS, ConnectionItem, ConnectionProtocol } from '@/shared/model'
-import { useDispatch } from 'react-redux'
-import { connect } from '@/renderer/entities/connection'
-import { getPageId } from '@/renderer/shared/api'
+import { CONNECTION_PROTOCOLS, ConnectionConfig, ConnectionProtocol } from '@/shared/model'
+import { useLazyCloseWindowQuery, useLazyGetPageIdQuery } from '@/renderer/shared/api'
+import { useLazyFtpConnectQuery } from '@/renderer/entities/connection'
 
 function ConnectForm(): React.JSX.Element {
     const [protocol, setProtocol] = useState<ConnectionProtocol>(CONNECTION_PROTOCOLS.FTP)
@@ -12,12 +11,14 @@ function ConnectForm(): React.JSX.Element {
     const [username, setUsername] = useState<string>(import.meta.env.VITE_FTP_TEST_USER)
     const [password, setPassword] = useState<string>(import.meta.env.VITE_FTP_TEST_PASSWORD)
     const [loading, setLoading] = useState<boolean>(false)
-    const dispatch = useDispatch()
+    const [getPageId] = useLazyGetPageIdQuery()
+    const [closeWindow] = useLazyCloseWindowQuery()
+    const [ftpConnect] = useLazyFtpConnectQuery()
 
     async function submitHandler(e: React.SubmitEvent<HTMLFormElement>): Promise<void> {
         e.preventDefault()
 
-        const newConnection: ConnectionItem = {
+        const newConnection: ConnectionConfig = {
             host,
             name: `${protocol}-${host}`,
             port,
@@ -28,13 +29,12 @@ function ConnectForm(): React.JSX.Element {
         }
 
         setLoading(true)
-        const connectionResponse = await window.api.ftp.connect(newConnection)
+        const connectionResponse = await ftpConnect(newConnection).unwrap()
 
         setLoading(false)
-        if (connectionResponse.ok) {
-            dispatch(connect({ ...newConnection, id: connectionResponse.data.connectionId }))
-            const pageId = await getPageId()
-            window.api.window.close({ id: pageId })
+        if (connectionResponse) {
+            const pageId = await getPageId(undefined, false).unwrap()
+            closeWindow({ id: pageId })
         }
     }
 
