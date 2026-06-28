@@ -2,6 +2,7 @@ import { app, BrowserWindow, shell } from 'electron'
 import { electronApp, is, optimizer } from '@electron-toolkit/utils'
 import { registerIpcHandlers } from './ipc'
 import { PATHS } from '@/backend/shared/model'
+import { createStore } from '@/backend/shared/store'
 
 function createWindow(): BrowserWindow {
     const mainWindow = new BrowserWindow({
@@ -35,6 +36,8 @@ function createWindow(): BrowserWindow {
 
 app.whenReady().then(() => {
     electronApp.setAppUserModelId('ru.verftp')
+
+    createStore(app)
 
     app.on('browser-window-created', (_, window) => {
         optimizer.watchWindowShortcuts(window)
