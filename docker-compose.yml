@@ -12,5 +12,5 @@ services:
             PASV_MIN_PORT: 30000
             PASV_MAX_PORT: 30009
         volumes:
-            - ./ftp-data/home:/home/vsftpd
-            - ./ftp-data/logs:/var/log/vsftpd
+            - ./test-ftp-server/home:/home/vsftpd
+            - ./test-ftp-server/logs:/var/log/vsftpd

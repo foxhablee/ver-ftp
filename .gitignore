@@ -45,6 +45,8 @@ out
 /.idea/csv-plugin.xml
 
 # testing
-ftp-data
+test-ftp-server
+test-ftp-server/**/*
 *-test
 *-test/**/*
+dev-user-data
