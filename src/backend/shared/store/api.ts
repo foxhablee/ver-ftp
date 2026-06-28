@@ -1,12 +1,18 @@
-import { getStoreByToken } from './read'
-import { JsonWritableData, safeWriteDataByToken } from './write'
+import { getStore } from './store'
+import type { StoreSchema } from './index'
 
+/**
+ * Domain-agnostic facade over the typed electron-store instance.
+ * Reads return `undefined` when the key is absent — defaults are the owning feature's responsibility.
+ * Writes replace the token's value wholesale.
+ */
 export const storeApi = {
-    getByToken<TData>(token: string): TData {
-        return getStoreByToken(token)
+    getByToken<TToken extends keyof StoreSchema>(token: TToken): StoreSchema[TToken] | undefined {
+        const store = getStore()
+        return store.has(token) ? store.get(token) : undefined
     },
 
-    writeByToken(token: string, data: JsonWritableData): void {
-        safeWriteDataByToken(token, data)
+    writeByToken<TToken extends keyof StoreSchema>(token: TToken, value: StoreSchema[TToken]): void {
+        getStore().set(token, value)
     },
 }

@@ -4,7 +4,6 @@ export const FOLDER_FILES_NAMES = {
     STORE: 'store',
     DEV_USER_DATA: 'dev-user-data',
     STORE_JSON: 'store.json',
-    STORE_TEMP_JSON: 'store.temp.json',
 } as const
 
 export const PATHS = {

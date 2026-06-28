@@ -37,7 +37,7 @@ function createWindow(): BrowserWindow {
 app.whenReady().then(() => {
     electronApp.setAppUserModelId('ru.verftp')
 
-    createStore(app)
+    createStore()
 
     app.on('browser-window-created', (_, window) => {
         optimizer.watchWindowShortcuts(window)
