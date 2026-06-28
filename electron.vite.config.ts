@@ -11,6 +11,9 @@ export default defineConfig({
             },
         },
         build: {
+            externalizeDeps: {
+                exclude: ['electron-store'],
+            },
             lib: {
                 entry: 'src/backend/app/index.ts',
             },
