@@ -16,7 +16,7 @@ import {
 import {
     WINDOW_GET_ID_METHOD_CHANNEL,
     WindowGetIdMethod,
-} from '@/backend/features/get-window-id/model/window-get-id.ipc-model'
+} from '@/backend/features/window-get-id/model/window-get-id.ipc-model'
 import {
     WINDOW_CLOSE_METHOD_CHANNEL,
     WindowCloseMethod,
