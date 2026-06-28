@@ -1,3 +1,3 @@
 export { type FTPConnection } from './FTPConnection'
 export { connectionsMap } from './connections'
-export { PATHS } from './path-constants'
+export { PATHS, FOLDER_FILES_NAMES } from './path-constants'
