@@ -20,7 +20,7 @@ import {
 import {
     WINDOW_CLOSE_METHOD_CHANNEL,
     WindowCloseMethod,
-} from '@/backend/features/close-window/model/window-close.ipc-model'
+} from '@/backend/features/window-close/model/window-close.ipc-model'
 import {
     LOCAL_PATH_CONTENT_METHOD_CHANNEL,
     LocalPathContentMethod,
