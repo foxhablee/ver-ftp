@@ -1,7 +1,7 @@
 import type { BrowserWindow } from 'electron'
 import { is } from '@electron-toolkit/utils'
 import { pageRegistry } from '@/shared/model'
-import { PATHS } from '@/backend/shared/lib'
+import { PATHS } from '@/backend/shared/model'
 import { SubwindowContent } from '../model/window-create.ipc-model'
 
 export function loadSubwindowContent(window: BrowserWindow, props: SubwindowContent): void {

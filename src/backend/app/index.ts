@@ -1,7 +1,7 @@
 import { app, BrowserWindow, shell } from 'electron'
 import { electronApp, is, optimizer } from '@electron-toolkit/utils'
 import { registerIpcHandlers } from './ipc'
-import { PATHS } from '@/backend/shared/lib'
+import { PATHS } from '@/backend/shared/model'
 
 function createWindow(): BrowserWindow {
     const mainWindow = new BrowserWindow({
