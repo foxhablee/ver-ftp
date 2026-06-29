@@ -1,0 +1,1 @@
+export { newConnectionPage } from './route'

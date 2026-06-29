@@ -4,12 +4,12 @@ import { usePathContentQuery } from '@/renderer/entities/fs-item'
 import { OutlineIconButton } from '@/renderer/shared/ui'
 import { FileManagerContext } from '../model/FileManagerContext'
 import FileManagerBreadcrumbs from './FileManagerBreadcrumbs'
+import { ConnectionsMenu } from '@/renderer/entities/connection'
 
 import CachedIcon from '@mui/icons-material/Cached'
 import NoteAddIcon from '@mui/icons-material/NoteAdd'
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
 import CreateNewFolderIcon from '@mui/icons-material/CreateNewFolder'
-import ConnectionsMenu from '../../../entities/connection/ui/ConnectionsMenu'
 
 const titleSx = (theme: Theme) =>
     ({

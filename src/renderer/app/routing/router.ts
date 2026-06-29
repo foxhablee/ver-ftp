@@ -2,7 +2,7 @@ import { createRouter } from '@tanstack/react-router'
 import { rootRoute } from '@/renderer/shared/lib'
 import { shellRoute } from '@/renderer/pages/shell'
 import { toolRouter } from '@/renderer/pages/tool'
-import { newConnectionPage } from '@/renderer/pages/new-connection/route'
+import { newConnectionPage } from '@/renderer/pages/new-connection'
 
 const routeTree = rootRoute.addChildren([shellRoute, toolRouter, newConnectionPage])
 
