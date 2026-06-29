@@ -6,4 +6,9 @@ export default defineConfig([
     {
         ignores: ['**/__mocks__/**', '**/*.test.*', '**/*.spec.*'],
     },
+    {
+        rules: {
+            'fsd/insignificant-slice': 'off',
+        },
+    },
 ])
